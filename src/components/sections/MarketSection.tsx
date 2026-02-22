@@ -56,7 +56,7 @@ export default function MarketSection() {
                 suffix="억명"
                 decimals={1}
                 duration={2200}
-                className="text-3xl font-semibold text-text-primary"
+                className="text-2xl md:text-3xl font-semibold text-text-primary"
               />
               <p className="text-[15px] text-text-secondary mt-2 leading-relaxed">
                 세계 4위, 동남아 최대 소비시장
@@ -79,7 +79,7 @@ export default function MarketSection() {
                     suffix="억"
                     decimals={0}
                     duration={2200}
-                    className="text-3xl font-semibold text-text-primary"
+                    className="text-2xl md:text-3xl font-semibold text-text-primary"
                   />
                   <p className="text-[15px] text-text-secondary mt-2 leading-relaxed">
                     2024년 기준, 연 15.2% 성장 &rarr; 2032년 $2,305억
@@ -109,7 +109,7 @@ export default function MarketSection() {
                 suffix="억"
                 decimals={0}
                 duration={2200}
-                className="text-3xl font-semibold text-text-primary"
+                className="text-2xl md:text-3xl font-semibold text-text-primary"
               />
               <ProgressBar
                 value={187}
@@ -139,7 +139,7 @@ export default function MarketSection() {
                     suffix="억명"
                     decimals={2}
                     duration={2200}
-                    className="text-3xl font-semibold text-text-primary"
+                    className="text-2xl md:text-3xl font-semibold text-text-primary"
                   />
                   <p className="text-[15px] text-text-secondary mt-2 leading-relaxed">
                     세계 2위 틱톡 시장, 소셜커머스 급성장
@@ -171,7 +171,7 @@ export default function MarketSection() {
                   suffix="%"
                   decimals={0}
                   duration={2200}
-                  className="text-3xl font-semibold text-text-primary"
+                  className="text-2xl md:text-3xl font-semibold text-text-primary"
                 />
                 <span className="text-lg text-text-secondary">/년</span>
               </div>
@@ -193,7 +193,7 @@ export default function MarketSection() {
                 suffix="만+"
                 decimals={0}
                 duration={2200}
-                className="text-3xl font-semibold text-text-primary"
+                className="text-2xl md:text-3xl font-semibold text-text-primary"
               />
               <ProgressBar
                 value={7000}

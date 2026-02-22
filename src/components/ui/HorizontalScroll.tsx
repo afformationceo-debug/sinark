@@ -69,6 +69,12 @@ export default function HorizontalScroll({
         >
           {children}
         </div>
+
+        {/* Mobile scroll hint gradient */}
+        <div
+          aria-hidden="true"
+          className="absolute right-0 top-0 bottom-4 w-12 pointer-events-none md:hidden bg-gradient-to-l from-[var(--color-bg-primary,#0a0f1e)] to-transparent"
+        />
       </div>
 
       {/* Pagination dots */}

@@ -1,11 +1,19 @@
 "use client";
 
+import { Building2, Megaphone, ShoppingCart, TrendingUp } from "lucide-react";
 import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import TextReveal from "@/components/animation/TextReveal";
 import ScrollReveal from "@/components/animation/ScrollReveal";
 import HeroPipelineGraph from "@/components/sections/HeroPipelineGraph";
 import { TRUST_BADGES } from "@/lib/constants";
+
+const mobilePipelinePhases = [
+  { label: "시장진입", Icon: Building2, color: "indigo", services: ["법인설립", "할랄인증", "수입허가"] },
+  { label: "마케팅", Icon: Megaphone, color: "cyan", services: ["인플루언서", "콘텐츠 제작", "SNS 운영"] },
+  { label: "세일즈", Icon: ShoppingCart, color: "emerald", services: ["쇼피 입점", "틱톡샵", "오프라인 유통"] },
+  { label: "운영", Icon: TrendingUp, color: "amber", services: ["CS 관리", "물류", "성과 분석"] },
+];
 
 export default function HeroSection() {
   return (
@@ -66,8 +74,55 @@ export default function HeroSection() {
               </div>
             </ScrollReveal>
 
-            {/* Trust badges row */}
+            {/* Mobile pipeline (vertical compact flow) */}
             <ScrollReveal delay={1.8}>
+              <div className="md:hidden mb-10">
+                <div className="relative pl-5">
+                  {/* Vertical connecting line */}
+                  <div className="absolute left-[13px] top-3 bottom-3 w-px bg-gradient-to-b from-indigo-500/40 via-cyan-500/40 via-emerald-500/40 to-amber-500/40" />
+
+                  <div className="space-y-3">
+                    {mobilePipelinePhases.map((phase) => {
+                      const colorMap: Record<string, string> = {
+                        indigo: "border-indigo-500/25 bg-indigo-500/[0.04]",
+                        cyan: "border-cyan-500/25 bg-cyan-500/[0.04]",
+                        emerald: "border-emerald-500/25 bg-emerald-500/[0.04]",
+                        amber: "border-amber-500/25 bg-amber-500/[0.04]",
+                      };
+                      const iconColorMap: Record<string, string> = {
+                        indigo: "text-indigo-400",
+                        cyan: "text-cyan-400",
+                        emerald: "text-emerald-400",
+                        amber: "text-amber-400",
+                      };
+                      const dotColorMap: Record<string, string> = {
+                        indigo: "bg-indigo-500",
+                        cyan: "bg-cyan-500",
+                        emerald: "bg-emerald-500",
+                        amber: "bg-amber-500",
+                      };
+                      return (
+                        <div key={phase.label} className="relative flex items-start gap-3">
+                          {/* Dot on the line */}
+                          <div className={`absolute -left-5 top-3 w-2.5 h-2.5 rounded-full ${dotColorMap[phase.color]} ring-2 ring-[#0a0f1e]`} />
+                          {/* Card */}
+                          <div className={`flex-1 rounded-lg border ${colorMap[phase.color]} px-3 py-2.5`}>
+                            <div className="flex items-center gap-2 mb-1">
+                              <phase.Icon size={14} strokeWidth={1.5} className={iconColorMap[phase.color]} />
+                              <span className="text-sm font-semibold text-text-primary">{phase.label}</span>
+                            </div>
+                            <p className="text-xs text-text-tertiary">{phase.services.join(" · ")}</p>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
+
+            {/* Trust badges row */}
+            <ScrollReveal delay={2.0}>
               <div className="flex flex-wrap items-center gap-3">
                 {TRUST_BADGES.map((badge) => (
                   <span

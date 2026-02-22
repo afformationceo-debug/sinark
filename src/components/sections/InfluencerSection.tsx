@@ -27,7 +27,7 @@ const tiers = [
     icon: Star,
     followers: "10만-100만",
     price: "$1,000~$5,000/캠페인",
-    width: "w-full md:w-[80%]",
+    width: "w-full md:w-[90%]",
     items: [
       "제품 리뷰 & 언박싱",
       "브랜드 콜라보",
@@ -41,7 +41,7 @@ const tiers = [
     icon: Gem,
     followers: "1만-10만",
     price: "$100~$500/캠페인",
-    width: "w-full md:w-[60%]",
+    width: "w-full md:w-[80%]",
     items: [
       "진정성 있는 사용 후기",
       "UGC 대량 생산",

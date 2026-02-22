@@ -64,42 +64,42 @@ export default function Card({
   switch (variant) {
     case "surface":
       return (
-        <div className={`${baseClasses} p-6 md:p-8 ${c.bg} border ${c.border} ${className}`}>
+        <div className={`${baseClasses} p-5 md:p-6 lg:p-8 ${c.bg} border ${c.border} ${className}`}>
           {children}
         </div>
       );
 
     case "elevated":
       return (
-        <div className={`${baseClasses} p-6 md:p-8 ${c.bg} border ${c.border} shadow-[0_2px_16px_rgba(0,0,0,0.25)] ${className}`}>
+        <div className={`${baseClasses} p-5 md:p-6 lg:p-8 ${c.bg} border ${c.border} shadow-[0_2px_16px_rgba(0,0,0,0.25)] ${className}`}>
           {children}
         </div>
       );
 
     case "interactive":
       return (
-        <div className={`${baseClasses} p-6 md:p-8 ${c.bg} border ${c.border} ${c.hoverBorder} hover:-translate-y-0.5 cursor-default ${className}`}>
+        <div className={`${baseClasses} p-5 md:p-6 lg:p-8 ${c.bg} border ${c.border} ${c.hoverBorder} hover:-translate-y-0.5 cursor-default ${className}`}>
           {children}
         </div>
       );
 
     case "stat":
       return (
-        <div className={`${baseClasses} p-6 md:p-8 text-center ${className}`}>
+        <div className={`${baseClasses} p-5 md:p-6 lg:p-8 text-center ${className}`}>
           {children}
         </div>
       );
 
     case "featured":
       return (
-        <div className={`${baseClasses} p-6 md:p-8 ${c.bg} border ${c.border} border-l-[3px] ${c.featuredBorder} ${className}`}>
+        <div className={`${baseClasses} p-5 md:p-6 lg:p-8 ${c.bg} border ${c.border} border-l-[3px] ${c.featuredBorder} ${className}`}>
           {children}
         </div>
       );
 
     default:
       return (
-        <div className={`${baseClasses} p-6 md:p-8 ${c.bg} border ${c.border} ${className}`}>
+        <div className={`${baseClasses} p-5 md:p-6 lg:p-8 ${c.bg} border ${c.border} ${className}`}>
           {children}
         </div>
       );

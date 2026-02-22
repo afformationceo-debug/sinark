@@ -18,7 +18,7 @@ interface FormState {
 }
 
 const inputClasses =
-  "w-full bg-[#0a0f1e] border border-[rgba(99,102,241,0.25)] rounded-lg px-4 py-3 text-text-primary placeholder:text-text-tertiary focus:border-brand-indigo focus:outline-none focus:ring-1 focus:ring-brand-indigo/50 transition";
+  "w-full bg-[#0a0f1e] border border-[rgba(99,102,241,0.25)] rounded-lg px-4 py-3 text-base text-text-primary placeholder:text-text-tertiary focus:border-brand-indigo focus:outline-none focus:ring-1 focus:ring-brand-indigo/50 transition";
 
 const labelClasses = "block text-sm font-medium text-text-secondary mb-1.5";
 
@@ -102,7 +102,7 @@ export default function CTASection() {
               </ul>
 
               {/* Mini stats row */}
-              <div className="mt-8 flex items-center gap-6">
+              <div className="mt-8 flex items-center gap-4 sm:gap-6">
                 {miniStats.map((stat, idx) => (
                   <div key={stat.label} className="flex items-center gap-6">
                     <div>
@@ -235,7 +235,7 @@ export default function CTASection() {
                 {/* Services checkboxes */}
                 <div>
                   <p className={labelClasses}>관심 서비스 (복수 선택 가능)</p>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-1">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 mt-1">
                     {SERVICE_OPTIONS.map((service) => (
                       <label
                         key={service}
@@ -274,7 +274,7 @@ export default function CTASection() {
                 {/* Submit */}
                 <button
                   type="submit"
-                  className="w-full py-4 px-6 rounded-lg font-bold text-base text-white bg-gradient-to-r from-brand-indigo to-brand-cyan shadow-lg shadow-brand-indigo/25 hover:shadow-brand-indigo/40 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer truncate"
+                  className="w-full py-4 px-6 rounded-lg font-bold text-base text-white bg-gradient-to-r from-brand-indigo to-brand-cyan shadow-lg shadow-brand-indigo/25 hover:shadow-brand-indigo/40 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer whitespace-nowrap truncate"
                 >
                   무료 컨설팅 신청하기
                 </button>

@@ -180,7 +180,7 @@ function IndonesiaMap() {
               x={city.x}
               y={city.y - 14}
               textAnchor="middle"
-              className="fill-cyan-400 text-[11px] font-medium"
+              className="fill-cyan-400 text-[13px] sm:text-[11px] font-medium"
             >
               {city.name}
             </text>
