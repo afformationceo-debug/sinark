@@ -1,0 +1,465 @@
+[     324ms] [ERROR] A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <LoadingBoundary name="(marketing)/" loading={null}>
+      <HTTPAccessFallbackBoundary notFound={<SegmentViewNode>} forbidden={undefined} unauthorized={undefined}>
+        <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<SegmentViewNode>} forbidden={undefined} ...>
+          <RedirectBoundary>
+            <RedirectErrorBoundary router={{...}}>
+              <InnerLayoutRouter url="/" tree={[...]} params={{}} cacheNode={{rsc:<Fragment>, ...}} segmentPath={[...]} ...>
+                <SegmentViewNode type="page" pagePath="(marketing...">
+                  <SegmentTrieNode>
+                  <ClientPageRoot Component={function LandingPage} serverProvidedParams={{...}}>
+                    <LandingPage params={Promise} searchParams={Promise}>
+                      <div className="jsx-bf0413...">
+                        <JSXStyle>
+                        <LandingNav>
+                        <HeroSection>
+                          <section className="relative m...">
+                            <div>
+                            <div>
+                            <div>
+                            <div>
+                            <div className="absolute i...">
+                              <div
+                                className="absolute w-1 h-1 rounded-full bg-purple-400/20"
+                                style={{
++                                 left: "87.54625134398827%"
+-                                 left: "22.8392%"
++                                 top: "48.5108046035234%"
+-                                 top: "2.66856%"
++                                 animation: "landing-particle 15.563361473880892s linear infinite 3.912402914549642s"
+-                                 animation-duration: "11.2433s"
+-                                 animation-timing-function: "linear"
+-                                 animation-delay: "8.91891s"
+-                                 animation-iteration-count: "infinite"
+-                                 animation-direction: "normal"
+-                                 animation-fill-mode: "none"
+-                                 animation-play-state: "running"
+-                                 animation-name: "landing-particle"
+-                                 animation-timeline: "auto"
+-                                 animation-range-start: "normal"
+-                                 animation-range-end: "normal"
+                                }}
+                              >
+                              <div
+                                className="absolute w-1 h-1 rounded-full bg-purple-400/20"
+                                style={{
++                                 left: "44.93715212968096%"
+-                                 left: "80.8191%"
++                                 top: "44.078524315894455%"
+-                                 top: "94.4634%"
++                                 animation: "landing-particle 24.353667917938086s linear infinite 5.0697135845228525s"
+-                                 animation-duration: "21.5061s"
+-                                 animation-timing-function: "linear"
+-                                 animation-delay: "4.47326s"
+-                                 animation-iteration-count: "infinite"
+-                                 animation-direction: "normal"
+-                                 animation-fill-mode: "none"
+-                                 animation-play-state: "running"
+-                                 animation-name: "landing-particle"
+-                                 animation-timeline: "auto"
+-                                 animation-range-start: "normal"
+-                                 animation-range-end: "normal"
+                                }}
+                              >
+                              <div
+                                className="absolute w-1 h-1 rounded-full bg-purple-400/20"
+                                style={{
++                                 left: "15.78579417349335%"
+-                                 left: "92.9009%"
++                                 top: "21.67469920316324%"
+-                                 top: "82.5646%"
++                                 animation: "landing-particle 14.322671666687022s linear infinite 3.7880913066984903s"
+-                                 animation-duration: "18.5316s"
+-                                 animation-timing-function: "linear"
+-                                 animation-delay: "7.93756s"
+-                                 animation-iteration-count: "infinite"
+-                                 animation-direction: "normal"
+-                                 animation-fill-mode: "none"
+-                                 animation-play-state: "running"
+-                                 animation-name: "landing-particle"
+-                                 animation-timeline: "auto"
+-                                 animation-range-start: "normal"
+-                                 animation-range-end: "normal"
+                                }}
+                              >
+                              <div
+                                className="absolute w-1 h-1 rounded-full bg-purple-400/20"
+                                style={{
++                                 left: "82.1787924956346%"
+-                                 left: "45.5422%"
++                                 top: "66.49102228436529%"
+-                                 top: "94.6414%"
++                                 animation: "landing-particle 22.82628406494501s linear infinite 1.042238222402353s"
+-                                 animation-duration: "11.5721s"
+-                                 animation-timing-function: "linear"
+-                                 animation-delay: "3.40876s"
+-                                 animation-iteration-count: "infinite"
+-                                 animation-direction: "normal"
+-                                 animation-fill-mode: "none"
+-                                 animation-play-state: "running"
+-                                 animation-name: "landing-particle"
+-                                 animation-timeline: "auto"
+-                                 animation-range-start: "normal"
+-                                 animation-range-end: "normal"
+                                }}
+                              >
+                              <div
+                                className="absolute w-1 h-1 rounded-full bg-purple-400/20"
+                                style={{
++                                 left: "83.42773495598308%"
+-                                 left: "45.7006%"
++                                 top: "31.468680020498063%"
+-                                 top: "40.9999%"
++                                 animation: "landing-particle 21.396693311217554s linear infinite 1.7511234205728476s"
+-                                 animation-duration: "23.2005s"
+-                                 animation-timing-function: "linear"
+-                                 animation-delay: "1.95541s"
+-                                 animation-iteration-count: "infinite"
+-                                 animation-direction: "normal"
+-                                 animation-fill-mode: "none"
+-                                 animation-play-state: "running"
+-                                 animation-name: "landing-particle"
+-                                 animation-timeline: "auto"
+-                                 animation-range-start: "normal"
+-                                 animation-range-end: "normal"
+                                }}
+                              >
+                              <div
+                                className="absolute w-1 h-1 rounded-full bg-purple-400/20"
+                                style={{
++                                 left: "76.09019691453099%"
+-                                 left: "91.4515%"
++                                 top: "29.22848838480658%"
+-                                 top: "70.3809%"
++                                 animation: "landing-particle 11.013636103848494s linear infinite 5.641207927563748s"
+-                                 animation-duration: "10.8489s"
+-                                 animation-timing-function: "linear"
+-                                 animation-delay: "1.04878s"
+-                                 animation-iteration-count: "infinite"
+-                                 animation-direction: "normal"
+-                                 animation-fill-mode: "none"
+-                                 animation-play-state: "running"
+-                                 animation-name: "landing-particle"
+-                                 animation-timeline: "auto"
+-                                 animation-range-start: "normal"
+-                                 animation-range-end: "normal"
+                                }}
+                              >
+                              <div
+                                className="absolute w-1 h-1 rounded-full bg-purple-400/20"
+                                style={{
++                                 left: "17.319683115999197%"
+-                                 left: "95.2157%"
++                                 top: "1.0132462870505288%"
+-                                 top: "0.715529%"
++                                 animation: "landing-particle 18.374330896195126s linear infinite 0.9217899798275697s"
+-                                 animation-duration: "21.9506s"
+-                                 animation-timing-function: "linear"
+-                                 animation-delay: "0.99903s"
+-                                 animation-iteration-count: "infinite"
+-                                 animation-direction: "normal"
+-                                 animation-fill-mode: "none"
+-                                 animation-play-state: "running"
+-                                 animation-name: "landing-particle"
+-                                 animation-timeline: "auto"
+-                                 animation-range-start: "normal"
+-                                 animation-range-end: "normal"
+                                }}
+                              >
+                              <div
+                                className="absolute w-1 h-1 rounded-full bg-purple-400/20"
+                                style={{
++                                 left: "14.610009095118492%"
+-                                 left: "47.6318%"
++                                 top: "47.02923798885643%"
+-                                 top: "10.932%"
++                                 animation: "landing-particle 12.486240295540833s linear infinite 7.289528881438462s"
+-                                 animation-duration: "16.8991s"
+-                                 animation-timing-function: "linear"
+-                                 animation-delay: "1.483s"
+-                                 animation-iteration-count: "infinite"
+-                                 animation-direction: "normal"
+-                                 animation-fill-mode: "none"
+-                                 animation-play-state: "running"
+-                                 animation-name: "landing-particle"
+-                                 animation-timeline: "auto"
+-                                 animation-range-start: "normal"
+-                                 animation-range-end: "normal"
+                                }}
+                              >
+                              <div
+                                className="absolute w-1 h-1 rounded-full bg-purple-400/20"
+                                style={{
++                                 left: "13.569290215934448%"
+-                                 left: "47.6923%"
++                                 top: "25.946106496156318%"
+-                                 top: "21.5602%"
++                                 animation: "landing-particle 21.47812788797295s linear infinite 9.616757049506997s"
+-                                 animation-duration: "10.6483s"
+-                                 animation-timing-function: "linear"
+-                                 animation-delay: "5.9479s"
+-                                 animation-iteration-count: "infinite"
+-                                 animation-direction: "normal"
+-                                 animation-fill-mode: "none"
+-                                 animation-play-state: "running"
+-                                 animation-name: "landing-particle"
+-                                 animation-timeline: "auto"
+-                                 animation-range-start: "normal"
+-                                 animation-range-end: "normal"
+                                }}
+                              >
+                              <div
+                                className="absolute w-1 h-1 rounded-full bg-purple-400/20"
+                                style={{
++                                 left: "16.829217537884166%"
+-                                 left: "24.6269%"
++                                 top: "48.240725294109964%"
+-                                 top: "30.042%"
++                                 animation: "landing-particle 22.50268539687044s linear infinite 1.048845938790054s"
+-                                 animation-duration: "17.511s"
+-                                 animation-timing-function: "linear"
+-                                 animation-delay: "7.59367s"
+-                                 animation-iteration-count: "infinite"
+-                                 animation-direction: "normal"
+-                                 animation-fill-mode: "none"
+-                                 animation-play-state: "running"
+-                                 animation-name: "landing-particle"
+-                                 animation-timeline: "auto"
+-                                 animation-range-start: "normal"
+-                                 animation-range-end: "normal"
+                                }}
+                              >
+                              <div
+                                className="absolute w-1 h-1 rounded-full bg-purple-400/20"
+                                style={{
++                                 left: "27.27799418569251%"
+-                                 left: "6.8127%"
++                                 top: "31.630442582115247%"
+-                                 top: "66.0157%"
++                                 animation: "landing-particle 16.160867235789734s linear infinite 1.8188145435366365s"
+-                                 animation-duration: "24.6313s"
+-                                 animation-timing-function: "linear"
+-                                 animation-delay: "4.70204s"
+-                                 animation-iteration-count: "infinite"
+-                                 animation-direction: "normal"
+-                                 animation-fill-mode: "none"
+-                                 animation-play-state: "running"
+-                                 animation-name: "landing-particle"
+-                                 animation-timeline: "auto"
+-                                 animation-range-start: "normal"
+-                                 animation-range-end: "normal"
+                                }}
+                              >
+                              <div
+                                className="absolute w-1 h-1 rounded-full bg-purple-400/20"
+                                style={{
++                                 left: "58.019325830369226%"
+-                                 left: "94.9763%"
++                                 top: "62.294305558067684%"
+-                                 top: "4.43849%"
++                                 animation: "landing-particle 12.292343032119721s linear infinite 3.92194493322629s"
+-                                 animation-duration: "17.5128s"
+-                                 animation-timing-function: "linear"
+-                                 animation-delay: "7.13017s"
+-                                 animation-iteration-count: "infinite"
+-                                 animation-direction: "normal"
+-                                 animation-fill-mode: "none"
+-                                 animation-play-state: "running"
+-                                 animation-name: "landing-particle"
+-                                 animation-timeline: "auto"
+-                                 animation-range-start: "normal"
+-                                 animation-range-end: "normal"
+                                }}
+                              >
+                              <div
+                                className="absolute w-1 h-1 rounded-full bg-purple-400/20"
+                                style={{
++                                 left: "0.8224399259406878%"
+-                                 left: "31.9424%"
++                                 top: "97.34501431231344%"
+-                                 top: "92.3089%"
++                                 animation: "landing-particle 19.848962964071273s linear infinite 7.319586297940946s"
+-                                 animation-duration: "10.4509s"
+-                                 animation-timing-function: "linear"
+-                                 animation-delay: "0.0640999s"
+-                                 animation-iteration-count: "infinite"
+-                                 animation-direction: "normal"
+-                                 animation-fill-mode: "none"
+-                                 animation-play-state: "running"
+-                                 animation-name: "landing-particle"
+-                                 animation-timeline: "auto"
+-                                 animation-range-start: "normal"
+-                                 animation-range-end: "normal"
+                                }}
+                              >
+                              <div
+                                className="absolute w-1 h-1 rounded-full bg-purple-400/20"
+                                style={{
++                                 left: "90.32390210483439%"
+-                                 left: "78.1472%"
++                                 top: "87.84579303723893%"
+-                                 top: "15.4135%"
++                                 animation: "landing-particle 18.60315563888303s linear infinite 4.103069560785382s"
+-                                 animation-duration: "20.8881s"
+-                                 animation-timing-function: "linear"
+-                                 animation-delay: "8.00857s"
+-                                 animation-iteration-count: "infinite"
+-                                 animation-direction: "normal"
+-                                 animation-fill-mode: "none"
+-                                 animation-play-state: "running"
+-                                 animation-name: "landing-particle"
+-                                 animation-timeline: "auto"
+-                                 animation-range-start: "normal"
+-                                 animation-range-end: "normal"
+                                }}
+                              >
+                              <div
+                                className="absolute w-1 h-1 rounded-full bg-purple-400/20"
+                                style={{
++                                 left: "51.125236476327295%"
+-                                 left: "51.3309%"
++                                 top: "41.67137954749288%"
+-                                 top: "65.1823%"
++                                 animation: "landing-particle 17.076957390548188s linear infinite 0.665844653516573s"
+-                                 animation-duration: "10.7626s"
+-                                 animation-timing-function: "linear"
+-                                 animation-delay: "8.76348s"
+-                                 animation-iteration-count: "infinite"
+-                                 animation-direction: "normal"
+-                                 animation-fill-mode: "none"
+-                                 animation-play-state: "running"
+-                                 animation-name: "landing-particle"
+-                                 animation-timeline: "auto"
+-                                 animation-range-start: "normal"
+-                                 animation-range-end: "normal"
+                                }}
+                              >
+                              <div
+                                className="absolute w-1 h-1 rounded-full bg-purple-400/20"
+                                style={{
++                                 left: "44.97113540344784%"
+-                                 left: "82.3388%"
++                                 top: "12.883922403957971%"
+-                                 top: "47.7335%"
++                                 animation: "landing-particle 13.332920933665182s linear infinite 8.92501315878902s"
+-                                 animation-duration: "22.6837s"
+-                                 animation-timing-function: "linear"
+-                                 animation-delay: "5.64381s"
+-                                 animation-iteration-count: "infinite"
+-                                 animation-direction: "normal"
+-                                 animation-fill-mode: "none"
+-                                 animation-play-state: "running"
+-                                 animation-name: "landing-particle"
+-                                 animation-timeline: "auto"
+-                                 animation-range-start: "normal"
+-                                 animation-range-end: "normal"
+                                }}
+                              >
+                              <div
+                                className="absolute w-1 h-1 rounded-full bg-purple-400/20"
+                                style={{
++                                 left: "50.29591722004761%"
+-                                 left: "56.2205%"
++                                 top: "79.09819997391178%"
+-                                 top: "64.2765%"
++                                 animation: "landing-particle 19.818699271975312s linear infinite 2.0370904708661097s"
+-                                 animation-duration: "18.8983s"
+-                                 animation-timing-function: "linear"
+-                                 animation-delay: "5.64973s"
+-                                 animation-iteration-count: "infinite"
+-                                 animation-direction: "normal"
+-                                 animation-fill-mode: "none"
+-                                 animation-play-state: "running"
+-                                 animation-name: "landing-particle"
+-                                 animation-timeline: "auto"
+-                                 animation-range-start: "normal"
+-                                 animation-range-end: "normal"
+                                }}
+                              >
+                              <div
+                                className="absolute w-1 h-1 rounded-full bg-purple-400/20"
+                                style={{
++                                 left: "68.60479512490349%"
+-                                 left: "90.7838%"
++                                 top: "29.25326901476648%"
+-                                 top: "63.0388%"
++                                 animation: "landing-particle 19.91812250117951s linear infinite 5.607449106725847s"
+-                                 animation-duration: "10.1936s"
+-                                 animation-timing-function: "linear"
+-                                 animation-delay: "0.88628s"
+-                                 animation-iteration-count: "infinite"
+-                                 animation-direction: "normal"
+-                                 animation-fill-mode: "none"
+-                                 animation-play-state: "running"
+-                                 animation-name: "landing-particle"
+-                                 animation-timeline: "auto"
+-                                 animation-range-start: "normal"
+-                                 animation-range-end: "normal"
+                                }}
+                              >
+                              <div
+                                className="absolute w-1 h-1 rounded-full bg-purple-400/20"
+                                style={{
++                                 left: "9.15591338549888%"
+-                                 left: "75.2413%"
++                                 top: "85.77315562554391%"
+-                                 top: "51.903%"
++                                 animation: "landing-particle 10.590703408636607s linear infinite 4.317555130233508s"
+-                                 animation-duration: "23.8811s"
+-                                 animation-timing-function: "linear"
+-                                 animation-delay: "2.38542s"
+-                                 animation-iteration-count: "infinite"
+-                                 animation-direction: "normal"
+-                                 animation-fill-mode: "none"
+-                                 animation-play-state: "running"
+-                                 animation-name: "landing-particle"
+-                                 animation-timeline: "auto"
+-                                 animation-range-start: "normal"
+-                                 animation-range-end: "normal"
+                                }}
+                              >
+                              <div
+                                className="absolute w-1 h-1 rounded-full bg-purple-400/20"
+                                style={{
++                                 left: "45.466888695642005%"
+-                                 left: "54.0133%"
++                                 top: "17.7817810865463%"
+-                                 top: "54.9232%"
++                                 animation: "landing-particle 11.927638741480116s linear infinite 8.695218668863001s"
+-                                 animation-duration: "16.9606s"
+-                                 animation-timing-function: "linear"
+-                                 animation-delay: "4.3765s"
+-                                 animation-iteration-count: "infinite"
+-                                 animation-direction: "normal"
+-                                 animation-fill-mode: "none"
+-                                 animation-play-state: "running"
+-                                 animation-name: "landing-particle"
+-                                 animation-timeline: "auto"
+-                                 animation-range-start: "normal"
+-                                 animation-range-end: "normal"
+                                }}
+                              >
+                            ...
+                        ...
+                ...
+              ...
+ @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js:3127
+[    8280ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=RnksfrQzvfJOoydPR5V_D' failed:  @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_17643121._.js:10878
+[    9287ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=RnksfrQzvfJOoydPR5V_D' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_17643121._.js:10878
+[   10289ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=RnksfrQzvfJOoydPR5V_D' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_17643121._.js:10878
+[   11290ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=RnksfrQzvfJOoydPR5V_D' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_17643121._.js:10878
+[   12294ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=RnksfrQzvfJOoydPR5V_D' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_17643121._.js:10878
+[   13298ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=RnksfrQzvfJOoydPR5V_D' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_17643121._.js:10878
+[   18305ms] [ERROR] WebSocket connection to 'ws://localhost:3000/_next/webpack-hmr?id=RnksfrQzvfJOoydPR5V_D' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_client_17643121._.js:10878

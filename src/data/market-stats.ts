@@ -1,0 +1,58 @@
+import type { MarketStat } from '@/types';
+
+export const marketStats: MarketStat[] = [
+  {
+    icon: '👥',
+    value: '2.8',
+    numericValue: 2.8,
+    suffix: '억명',
+    label: '인구',
+    description: '세계 4위, 동남아 최대 소비시장',
+    color: 'indigo',
+  },
+  {
+    icon: '🛒',
+    value: '$751',
+    numericValue: 751,
+    suffix: '억',
+    label: '이커머스 시장',
+    description: '2024년 기준, 연 15.2% 성장 → 2032년 $2,305억',
+    color: 'cyan',
+  },
+  {
+    icon: '🟠',
+    value: '$187',
+    numericValue: 187,
+    suffix: '억',
+    label: '쇼피 GMV',
+    description: '인도네시아 이커머스 1위 (36% 점유율)',
+    color: 'emerald',
+  },
+  {
+    icon: '📱',
+    value: '1.27',
+    numericValue: 1.27,
+    suffix: '억명',
+    label: '틱톡 사용자',
+    description: '세계 2위 틱톡 시장, 소셜커머스 급성장',
+    color: 'amber',
+  },
+  {
+    icon: '💄',
+    value: '+30',
+    numericValue: 30,
+    suffix: '%/년',
+    label: 'K-뷰티 수요',
+    description: '인도네시아 K-뷰티 수입 매년 30%+ 성장',
+    color: 'indigo',
+  },
+  {
+    icon: '💰',
+    value: '7,000',
+    numericValue: 7000,
+    suffix: '만+',
+    label: '중산층 인구',
+    description: '구매력 있는 소비자층 급속 확대',
+    color: 'cyan',
+  },
+];
