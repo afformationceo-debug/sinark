@@ -6,6 +6,8 @@ interface SectionHeadingProps {
   subtitle?: string;
   icon?: ReactNode;
   align?: "left" | "center";
+  /** Show gradient underline beneath title */
+  underline?: boolean;
 }
 
 export default function SectionHeading({
@@ -14,6 +16,7 @@ export default function SectionHeading({
   subtitle,
   icon,
   align = "center",
+  underline = true,
 }: SectionHeadingProps) {
   const alignment = align === "center" ? "text-center items-center" : "text-left items-start";
 
@@ -25,11 +28,23 @@ export default function SectionHeading({
           {badge}
         </span>
       )}
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display tracking-tight text-text-primary leading-tight">
-        {title}
-      </h2>
+      <div className="relative">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display tracking-tight text-text-primary leading-tight">
+          {title}
+        </h2>
+        {underline && (
+          <div
+            className={`mt-3 h-[2px] rounded-full ${align === "center" ? "mx-auto" : ""}`}
+            style={{
+              width: "60%",
+              maxWidth: "280px",
+              background: "linear-gradient(90deg, transparent, #6366f1, #06b6d4, transparent)",
+            }}
+          />
+        )}
+      </div>
       {subtitle && (
-        <p className="text-base md:text-lg text-text-secondary max-w-2xl leading-relaxed">
+        <p className="text-base md:text-lg text-text-secondary max-w-2xl leading-relaxed mt-1">
           {subtitle}
         </p>
       )}

@@ -47,6 +47,14 @@ const translationServices = [
 export default function TranslationSection() {
   return (
     <section id="translation" className="relative py-24 md:py-32 px-4 sm:px-6 lg:px-8 section-phase-amber">
+      {/* Floating geometric shapes */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute top-[15%] right-[6%] w-20 h-20 rounded-full border border-brand-amber/10 animate-float-slow" />
+        <div className="absolute bottom-[20%] left-[5%] w-14 h-14 rotate-45 border border-brand-amber/10 animate-float-reverse" />
+        <div className="absolute top-[45%] left-[92%] w-3 h-3 rounded-full bg-brand-amber/20 animate-pulse-glow" />
+        <div className="absolute top-[70%] right-[88%] w-2 h-2 rounded-full bg-brand-amber/20 animate-pulse-glow" style={{ animationDelay: "1.5s" }} />
+      </div>
+
       <div className="max-w-6xl mx-auto">
         {/* ── Section heading ─────────────────────────────────── */}
         <ScrollReveal>
@@ -66,7 +74,7 @@ export default function TranslationSection() {
             className="grid grid-cols-1 md:grid-cols-2 gap-6"
           >
             {translationServices.map((service) => (
-              <GlowCard key={service.title} variant="amber">
+              <GlowCard key={service.title} variant="amber" accentBar>
                 <div className="flex items-center gap-3 mb-4">
                   <div className="icon-badge icon-badge-amber">
                     {service.title === "비즈니스 미팅 통역" ? "🗣️" : service.title === "문서 번역" ? "📝" : service.title === "이벤트 & 현장 지원" ? "🎤" : "🎬"}

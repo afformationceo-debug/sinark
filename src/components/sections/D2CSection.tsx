@@ -30,6 +30,14 @@ const integrations = [
 export default function D2CSection() {
   return (
     <section id="d2c" className="relative py-24 md:py-32 px-4 sm:px-6 lg:px-8 section-phase-emerald">
+      {/* Floating geometric shapes */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute top-[10%] left-[7%] w-20 h-20 rounded-full border border-brand-emerald/10 animate-float-slow" />
+        <div className="absolute bottom-[15%] right-[5%] w-16 h-16 rotate-45 border border-brand-emerald/10 animate-float-reverse" />
+        <div className="absolute top-[50%] left-[90%] w-3 h-3 rounded-full bg-brand-emerald/20 animate-pulse-glow" />
+        <div className="absolute top-[25%] right-[85%] w-2 h-2 rounded-full bg-brand-emerald/20 animate-pulse-glow" style={{ animationDelay: "1s" }} />
+      </div>
+
       <div className="max-w-6xl mx-auto">
         {/* ── Section heading ─────────────────────────────────── */}
         <ScrollReveal>
@@ -46,7 +54,7 @@ export default function D2CSection() {
         <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Left: Build service */}
           <ScrollReveal direction="left" delay={0.2}>
-            <GlowCard variant="emerald" className="h-full">
+            <GlowCard variant="emerald" animated cornerDots className="h-full">
               <div className="flex items-center gap-3 mb-5">
                 <div className="icon-badge icon-badge-emerald">🛠️</div>
                 <h3 className="text-xl font-bold text-text-primary">
@@ -69,7 +77,7 @@ export default function D2CSection() {
 
           {/* Right: Payment & integration */}
           <ScrollReveal direction="right" delay={0.2}>
-            <GlowCard variant="emerald" className="h-full">
+            <GlowCard variant="emerald" animated cornerDots className="h-full">
               <div className="flex items-center gap-3 mb-5">
                 <div className="icon-badge icon-badge-emerald">💳</div>
                 <h3 className="text-xl font-bold text-text-primary">

@@ -67,6 +67,11 @@ export default function ShopeeSection() {
         className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial-cyan opacity-10 blur-3xl"
       />
 
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute top-[12%] right-[6%] w-20 h-20 rounded-full border border-brand-emerald/8 animate-float-slow" />
+        <div className="absolute bottom-[18%] left-[4%] w-14 h-14 rotate-45 border border-brand-teal/8 animate-float-reverse" />
+      </div>
+
       <div className="relative max-w-6xl mx-auto">
         {/* ── Section heading ─────────────────────────────────── */}
         <ScrollReveal>
@@ -145,7 +150,7 @@ export default function ShopeeSection() {
             className="grid grid-cols-1 md:grid-cols-2 gap-6"
           >
             {detailCards.map((card) => (
-              <GlowCard key={card.title} variant="emerald" className="flex flex-col">
+              <GlowCard key={card.title} variant="emerald" animated cornerDots className="flex flex-col">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="icon-badge icon-badge-emerald">
                     {card.title === "스토어 셋업" ? "🏗️" : card.title === "상품 최적화" ? "✨" : card.title === "광고 운영" ? "📢" : "📊"}

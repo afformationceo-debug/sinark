@@ -33,7 +33,7 @@ const commonServices = [
 
 export default function SNSSection() {
   return (
-    <section id="sns" className="relative py-24 md:py-32 px-4 sm:px-6 lg:px-8 section-slightly-lighter">
+    <section id="sns" className="relative py-24 md:py-32 px-4 sm:px-6 lg:px-8 section-slightly-lighter grid-pattern">
       <div className="max-w-6xl mx-auto">
         {/* ── Section heading ─────────────────────────────────── */}
         <ScrollReveal>
@@ -50,7 +50,7 @@ export default function SNSSection() {
         <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Left: Instagram */}
           <ScrollReveal direction="left" delay={0.2}>
-            <GlowCard variant="amber" className="h-full">
+            <GlowCard variant="amber" animated className="h-full">
               <div className="flex items-center gap-3 mb-5">
                 <div className="icon-badge icon-badge-amber">📸</div>
                 <h3 className="text-xl font-bold text-text-primary">
@@ -73,7 +73,7 @@ export default function SNSSection() {
 
           {/* Right: TikTok */}
           <ScrollReveal direction="right" delay={0.2}>
-            <GlowCard variant="amber" className="h-full">
+            <GlowCard variant="amber" animated className="h-full">
               <div className="flex items-center gap-3 mb-5">
                 <div className="icon-badge icon-badge-amber">🎵</div>
                 <h3 className="text-xl font-bold text-text-primary">

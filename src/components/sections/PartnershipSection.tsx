@@ -25,6 +25,14 @@ const sinarmasBullets = [
 export default function PartnershipSection() {
   return (
     <section id="partnership" className="relative py-24 md:py-32 px-4 sm:px-6 lg:px-8 section-slightly-lighter">
+      {/* Floating geometric decorations */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute top-[15%] left-[5%] w-20 h-20 rounded-full border border-brand-indigo/10 animate-float-slow" />
+        <div className="absolute bottom-[20%] right-[8%] w-16 h-16 rotate-45 border border-brand-amber/10 animate-float-reverse" />
+        <div className="absolute top-[60%] left-[85%] w-3 h-3 rounded-full bg-brand-indigo/20 animate-pulse-glow" />
+        <div className="absolute top-[30%] right-[90%] w-2 h-2 rounded-full bg-brand-amber/20 animate-pulse-glow" style={{ animationDelay: "1s" }} />
+      </div>
+
       <div className="max-w-6xl mx-auto">
         {/* ── Section heading ─────────────────────────────────── */}
         <ScrollReveal>
@@ -40,7 +48,7 @@ export default function PartnershipSection() {
         <div className="mt-16 grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-8 lg:gap-0 items-center">
           {/* Left card – Afformation */}
           <ScrollReveal direction="left" delay={0.2}>
-            <GlowCard variant="indigo" className="h-full">
+            <GlowCard variant="indigo" animated className="h-full">
               <h3 className="text-2xl font-bold gradient-text mb-1">
                 Afformation
               </h3>
@@ -98,7 +106,7 @@ export default function PartnershipSection() {
 
           {/* Right card – Sinarmas Group */}
           <ScrollReveal direction="right" delay={0.2}>
-            <GlowCard variant="amber" className="h-full">
+            <GlowCard variant="amber" animated className="h-full">
               <h3 className="text-2xl font-bold gradient-text-amber mb-1">
                 Sinarmas Group
               </h3>
@@ -133,7 +141,7 @@ export default function PartnershipSection() {
         {/* ── Bottom banner ───────────────────────────────────── */}
         <ScrollReveal delay={0.5}>
           <div className="mt-16">
-            <GlowCard variant="purple" className="text-center py-8 px-6">
+            <GlowCard variant="purple" animated className="text-center py-8 px-6">
               <p className="text-base md:text-lg font-medium text-text-secondary leading-relaxed">
                 <span className="gradient-text font-bold">K브랜드 전문 마케팅 테크</span>
                 {" "}&times;{" "}

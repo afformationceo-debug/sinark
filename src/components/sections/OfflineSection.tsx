@@ -101,8 +101,8 @@ export default function OfflineSection() {
             staggerDelay={0.15}
             className="grid grid-cols-1 md:grid-cols-3 gap-6"
           >
-            {offlineCards.map((card) => (
-              <GlowCard key={card.title} variant="cyan" className="flex flex-col">
+            {offlineCards.map((card, index) => (
+              <GlowCard key={card.title} variant="cyan" cornerDots accentBar={index === 0} className="flex flex-col">
                 <div className="flex items-center gap-3 mb-5">
                   <div className="icon-badge icon-badge-cyan">
                     {card.title === "프리미엄 팝업스토어" ? "🏪" : card.title === "상설 리테일 입점" ? "🛍️" : "🎪"}

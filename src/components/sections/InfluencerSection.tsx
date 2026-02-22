@@ -61,12 +61,17 @@ const campaignSteps = [
 
 export default function InfluencerSection() {
   return (
-    <section id="influencer" className="relative py-24 md:py-32 px-4 sm:px-6 lg:px-8 section-phase-cyan phase-accent-cyan">
+    <section id="influencer" className="relative py-24 md:py-32 px-4 sm:px-6 lg:px-8 section-phase-cyan phase-accent-cyan grid-pattern">
       {/* Background accent */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial-cyan opacity-15 blur-3xl"
       />
+
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute top-[10%] left-[8%] w-24 h-24 rounded-full border border-brand-cyan/8 animate-float-slow" />
+        <div className="absolute bottom-[15%] right-[5%] w-16 h-16 rotate-45 border border-brand-blue/8 animate-float-reverse" />
+      </div>
 
       <div className="relative max-w-6xl mx-auto">
         {/* ── Section heading ─────────────────────────────────── */}
@@ -87,6 +92,8 @@ export default function InfluencerSection() {
               <GlowCard
                 key={tier.tier}
                 variant="cyan"
+                cornerDots
+                {...(tier.featured ? { animated: true } : {})}
                 className={`flex flex-col ${tier.featured ? "md:scale-105 md:-translate-y-2 ring-1 ring-brand-cyan/30" : ""}`}
               >
                 {/* Header */}

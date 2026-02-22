@@ -119,7 +119,7 @@ export default function LicensingSection() {
             className="grid grid-cols-1 md:grid-cols-3 gap-6"
           >
             {licensingCards.map((card) => (
-              <GlowCard key={card.title} variant="indigo" className="flex flex-col">
+              <GlowCard key={card.title} variant="indigo" animated className="flex flex-col corner-dots corner-dots-indigo">
                 <div className="flex items-center gap-3 mb-5">
                   <div className="icon-badge icon-badge-indigo">
                     {card.title === "BPOM 등록 (식약처)" ? "🏥" : card.title === "수입 라이선스 취득" ? "📜" : "🏢"}

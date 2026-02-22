@@ -50,6 +50,14 @@ const satisfactionFeatures = [
 export default function CustomerServiceSection() {
   return (
     <section id="cs" className="relative py-24 md:py-32 px-4 sm:px-6 lg:px-8 section-phase-amber phase-accent-amber">
+      {/* Floating geometric shapes */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute top-[12%] left-[6%] w-24 h-24 rounded-full border border-brand-amber/10 animate-float-slow" />
+        <div className="absolute bottom-[18%] right-[7%] w-16 h-16 rotate-45 border border-brand-amber/10 animate-float-reverse" />
+        <div className="absolute top-[55%] left-[85%] w-3 h-3 rounded-full bg-brand-amber/20 animate-pulse-glow" />
+        <div className="absolute top-[30%] right-[80%] w-2 h-2 rounded-full bg-brand-amber/20 animate-pulse-glow" style={{ animationDelay: "1s" }} />
+      </div>
+
       <div className="max-w-6xl mx-auto">
         {/* ── Section heading ─────────────────────────────────── */}
         <ScrollReveal>
@@ -66,7 +74,7 @@ export default function CustomerServiceSection() {
         <div className="mt-16 flex flex-col items-center">
           {/* Top node: WhatsApp Business */}
           <ScrollReveal delay={0.1}>
-            <GlowCard variant="amber" className="max-w-md w-full text-center">
+            <GlowCard variant="amber" animated className="max-w-md w-full text-center">
               <div className="flex items-center justify-center gap-3 mb-4">
                 <div className="icon-badge icon-badge-amber">💬</div>
                 <h3 className="text-xl font-bold text-text-primary">
@@ -100,7 +108,7 @@ export default function CustomerServiceSection() {
           <ScrollReveal delay={0.3} className="w-full">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {middleNodes.map((node) => (
-                <GlowCard key={node.title} variant="amber">
+                <GlowCard key={node.title} variant="amber" cornerDots>
                   <div className="flex items-center gap-3 mb-3">
                     <div className="icon-badge icon-badge-amber">
                       {node.title === "챗봇 자동응답" ? "🤖" : node.title === "CS팀 운영" ? "👥" : "📋"}

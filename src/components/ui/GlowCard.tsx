@@ -7,6 +7,12 @@ interface GlowCardProps {
   className?: string;
   variant?: GlowCardVariant;
   hover?: boolean;
+  /** Animated spinning gradient border */
+  animated?: boolean;
+  /** Top accent gradient bar */
+  accentBar?: boolean;
+  /** Corner glow dots */
+  cornerDots?: boolean;
 }
 
 const variantStyles: Record<GlowCardVariant, { bg: string; border: string; shadow: string }> = {
@@ -42,11 +48,35 @@ export default function GlowCard({
   className = "",
   variant = "indigo",
   hover = true,
+  animated = false,
+  accentBar = false,
+  cornerDots = false,
 }: GlowCardProps) {
   const s = variantStyles[variant];
+
+  // If animated border, use CSS class instead of inline styles for border
+  if (animated) {
+    const animatedClass = `gradient-border-${variant}`;
+    const cornerClass = cornerDots ? `corner-dots corner-dots-${variant}` : "";
+    const accentClass = accentBar ? `accent-bar-${variant}` : "";
+    return (
+      <div
+        className={`rounded-2xl p-6 md:p-8 transition-all duration-300 ease-out ${animatedClass} ${cornerClass} ${accentClass} ${hover ? "hover:scale-[1.02] hover:-translate-y-1" : ""} ${className}`}
+        style={{
+          boxShadow: s.shadow,
+        }}
+      >
+        {children}
+      </div>
+    );
+  }
+
+  const cornerClass = cornerDots ? `corner-dots corner-dots-${variant}` : "";
+  const accentClass = accentBar ? `accent-bar-${variant}` : "";
+
   return (
     <div
-      className={`rounded-2xl p-6 md:p-8 transition-all duration-300 ease-out ${hover ? "hover:scale-[1.02] hover:-translate-y-1" : ""} ${className}`}
+      className={`rounded-2xl p-6 md:p-8 transition-all duration-300 ease-out ${cornerClass} ${accentClass} ${hover ? "hover:scale-[1.02] hover:-translate-y-1" : ""} ${className}`}
       style={{
         background: s.bg,
         border: s.border,

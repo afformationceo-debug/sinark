@@ -60,12 +60,17 @@ const branchNodes = [
 
 export default function LogisticsSection() {
   return (
-    <section id="logistics" className="relative py-24 md:py-32 px-4 sm:px-6 lg:px-8 section-phase-indigo">
+    <section id="logistics" className="relative py-24 md:py-32 px-4 sm:px-6 lg:px-8 section-phase-indigo grid-pattern">
       {/* Background accent */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute bottom-1/3 left-0 w-[600px] h-[600px] bg-gradient-radial-indigo opacity-15 blur-3xl"
       />
+
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute top-[15%] left-[10%] w-14 h-14 rounded-full border border-brand-indigo/8 animate-float-slow" />
+        <div className="absolute bottom-[18%] right-[6%] w-10 h-10 rotate-45 border border-brand-purple/8 animate-float-reverse" />
+      </div>
 
       <div className="relative max-w-6xl mx-auto">
         {/* ── Section heading ─────────────────────────────────── */}
@@ -149,7 +154,7 @@ export default function LogisticsSection() {
             className="grid grid-cols-1 md:grid-cols-2 gap-6"
           >
             {detailCards.map((card) => (
-              <GlowCard key={card.title} variant="indigo" className="flex flex-col">
+              <GlowCard key={card.title} variant="indigo" accentBar className="flex flex-col">
                 <div className="flex items-center gap-3 mb-4">
                   <span className="text-xs font-black text-brand-indigo bg-brand-indigo/15 border border-brand-indigo/30 w-8 h-8 rounded-lg flex items-center justify-center font-mono shadow-sm shadow-brand-indigo/10">
                     {card.number}

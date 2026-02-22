@@ -78,7 +78,7 @@ export default function PipelineSection() {
   return (
     <section
       id="pipeline"
-      className="relative py-24 md:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden section-slightly-lighter"
+      className="relative py-24 md:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden section-slightly-lighter grid-pattern"
     >
       {/* Background accent */}
       <div
@@ -89,6 +89,12 @@ export default function PipelineSection() {
             "radial-gradient(ellipse at center, rgba(99,102,241,0.06) 0%, transparent 70%)",
         }}
       />
+
+      {/* Floating geometric decorations */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute top-[10%] right-[10%] w-24 h-24 rounded-full border border-brand-indigo/8 animate-float-slow" />
+        <div className="absolute bottom-[15%] left-[5%] w-14 h-14 rotate-45 border border-brand-cyan/8 animate-float-reverse" />
+      </div>
 
       <div className="relative max-w-7xl mx-auto">
         {/* ── Section heading ──────────────────────────────────── */}
@@ -105,7 +111,7 @@ export default function PipelineSection() {
         <ScrollReveal delay={0.15}>
           <div className="mt-16 flex justify-center">
             <div
-              className="mx-auto max-w-md w-full text-center rounded-2xl p-8"
+              className="mx-auto max-w-md w-full text-center rounded-2xl p-8 gradient-border-indigo"
               style={{
                 background:
                   "linear-gradient(135deg, rgba(99,102,241,0.15) 0%, rgba(6,182,212,0.08) 100%)",

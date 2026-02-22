@@ -8,7 +8,7 @@ import { TRUST_BADGES } from "@/lib/constants";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8">
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-8 grid-pattern">
       {/* ── Background radial gradient blob ─────────────────────── */}
       <div
         aria-hidden="true"
@@ -25,6 +25,14 @@ export default function HeroSection() {
         <span className="absolute top-[80%] left-[35%] w-1 h-1 rounded-full bg-brand-cyan/30 animate-pulse-glow" style={{ animationDelay: "2s" }} />
         <span className="absolute top-[15%] left-[50%] w-0.5 h-0.5 rounded-full bg-brand-purple/50 animate-pulse-glow" style={{ animationDelay: "0.3s" }} />
         <span className="absolute top-[65%] left-[60%] w-1 h-1 rounded-full bg-brand-emerald/50 animate-pulse-glow" style={{ animationDelay: "1.8s" }} />
+      </div>
+
+      {/* ── Floating geometric shapes ───────────────────────── */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+        <div className="absolute top-[20%] left-[5%] w-32 h-32 rounded-full border border-brand-indigo/5 animate-float-slow" />
+        <div className="absolute top-[60%] right-[8%] w-24 h-24 rotate-45 border border-brand-cyan/5 animate-float-reverse" />
+        <div className="absolute bottom-[25%] left-[70%] w-16 h-16 rounded-full border border-brand-emerald/5 animate-float-slow" style={{ animationDelay: "2s" }} />
+        <div className="absolute top-[35%] right-[25%] w-20 h-20 rotate-12 border border-brand-purple/5 animate-float-reverse" style={{ animationDelay: "1s" }} />
       </div>
 
       {/* ── Main content ────────────────────────────────────────── */}

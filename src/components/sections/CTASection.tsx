@@ -69,6 +69,15 @@ export default function CTASection() {
         className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-gradient-radial-indigo opacity-20"
       />
 
+      {/* Floating geometric shapes */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute top-[18%] left-[5%] w-28 h-28 rounded-full border border-brand-indigo/8 animate-float-slow" />
+        <div className="absolute bottom-[12%] right-[6%] w-20 h-20 rotate-45 border border-brand-cyan/8 animate-float-reverse" />
+        <div className="absolute top-[40%] right-[4%] w-3 h-3 rounded-full bg-brand-indigo/20 animate-pulse-glow" />
+        <div className="absolute bottom-[30%] left-[8%] w-2 h-2 rounded-full bg-brand-cyan/20 animate-pulse-glow" style={{ animationDelay: "1.5s" }} />
+        <div className="absolute top-[65%] left-[92%] w-16 h-16 rounded-full border border-brand-indigo/5 animate-float-slow" style={{ animationDelay: "2s" }} />
+      </div>
+
       <div className="relative max-w-4xl mx-auto">
         {/* ── Top headline ────────────────────────────────────── */}
         <ScrollReveal>
@@ -87,7 +96,7 @@ export default function CTASection() {
         {/* ── Contact form ────────────────────────────────────── */}
         <ScrollReveal delay={0.2}>
           <div className="max-w-2xl mx-auto">
-            <GlowCard variant="indigo">
+            <GlowCard variant="indigo" animated>
               <form onSubmit={handleSubmit} className="space-y-5">
                 {/* Row: company + name */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">

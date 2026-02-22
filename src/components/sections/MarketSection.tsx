@@ -19,6 +19,7 @@ interface StatCard {
   r: number;
   g: number;
   b: number;
+  variant: "indigo" | "cyan" | "emerald" | "amber";
 }
 
 const stats: StatCard[] = [
@@ -30,6 +31,7 @@ const stats: StatCard[] = [
     label: "인구",
     description: "세계 4위, 동남아 최대 소비시장",
     r: 99, g: 102, b: 241, // indigo
+    variant: "indigo",
   },
   {
     icon: "🛒",
@@ -40,6 +42,7 @@ const stats: StatCard[] = [
     label: "이커머스 시장",
     description: "2024년 기준, 연 15.2% 성장 → 2032년 $2,305억",
     r: 6, g: 182, b: 212, // cyan
+    variant: "cyan",
   },
   {
     icon: "🟠",
@@ -50,6 +53,7 @@ const stats: StatCard[] = [
     label: "쇼피 GMV",
     description: "인도네시아 이커머스 1위 (36% 점유율)",
     r: 16, g: 185, b: 129, // emerald
+    variant: "emerald",
   },
   {
     icon: "📱",
@@ -59,6 +63,7 @@ const stats: StatCard[] = [
     label: "틱톡 사용자",
     description: "세계 2위 틱톡 시장, 소셜커머스 급성장",
     r: 245, g: 158, b: 11, // amber
+    variant: "amber",
   },
   {
     icon: "💄",
@@ -69,6 +74,7 @@ const stats: StatCard[] = [
     label: "K-뷰티 수요",
     description: "인도네시아 K-뷰티 수입 매년 30%+ 성장",
     r: 99, g: 102, b: 241, // indigo
+    variant: "indigo",
   },
   {
     icon: "💰",
@@ -78,6 +84,7 @@ const stats: StatCard[] = [
     label: "중산층 인구",
     description: "구매력 있는 소비자층 급속 확대",
     r: 6, g: 182, b: 212, // cyan
+    variant: "cyan",
   },
 ];
 
@@ -87,7 +94,7 @@ const stats: StatCard[] = [
 
 export default function MarketSection() {
   return (
-    <section id="market" className="relative py-24 md:py-32 px-4 sm:px-6 lg:px-8 section-phase-cyan">
+    <section id="market" className="relative py-24 md:py-32 px-4 sm:px-6 lg:px-8 section-phase-cyan grid-pattern">
       {/* Subtle radial gradient glow */}
       <div
         aria-hidden="true"
@@ -97,6 +104,14 @@ export default function MarketSection() {
             "radial-gradient(ellipse at center, rgba(6,182,212,0.08) 0%, transparent 70%)",
         }}
       />
+
+      {/* Floating geometric decorations */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute top-[10%] left-[8%] w-24 h-24 rounded-full border border-brand-cyan/10 animate-float-slow" />
+        <div className="absolute bottom-[15%] right-[5%] w-16 h-16 rotate-45 border border-brand-indigo/10 animate-float-reverse" />
+        <div className="absolute top-[50%] left-[90%] w-3 h-3 rounded-full bg-brand-cyan/20 animate-pulse-glow" />
+        <div className="absolute top-[25%] right-[85%] w-2 h-2 rounded-full bg-brand-indigo/20 animate-pulse-glow" style={{ animationDelay: "1s" }} />
+      </div>
 
       <div className="relative max-w-6xl mx-auto">
         {/* ── Section heading ─────────────────────────────────── */}
@@ -114,7 +129,7 @@ export default function MarketSection() {
           {stats.map((stat, idx) => (
             <ScrollReveal key={stat.label} delay={0.1 + idx * 0.05}>
               <div
-                className="rounded-2xl p-6 md:p-8 transition-all duration-300 hover:scale-[1.02]"
+                className={`rounded-2xl p-6 md:p-8 transition-all duration-300 hover:scale-[1.02] corner-dots corner-dots-${stat.variant}${idx === 0 ? " accent-bar-cyan" : ""}${idx === 3 ? " accent-bar-indigo" : ""}`}
                 style={{
                   background: `linear-gradient(135deg, rgba(${stat.r},${stat.g},${stat.b},0.2) 0%, rgba(${stat.r},${stat.g},${stat.b},0.1) 100%)`,
                   border: `1px solid rgba(${stat.r},${stat.g},${stat.b},0.35)`,

@@ -63,12 +63,17 @@ const timelineSteps = [
 
 export default function HalalSection() {
   return (
-    <section id="halal" className="relative py-24 md:py-32 px-4 sm:px-6 lg:px-8 section-phase-indigo phase-accent-indigo">
+    <section id="halal" className="relative py-24 md:py-32 px-4 sm:px-6 lg:px-8 section-phase-indigo phase-accent-indigo diagonal-accent">
       {/* Background accent */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial-indigo opacity-20 blur-3xl"
       />
+
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute top-[8%] right-[12%] w-16 h-16 rounded-full border border-brand-indigo/8 animate-float-slow" />
+        <div className="absolute bottom-[12%] left-[8%] w-12 h-12 rotate-45 border border-brand-purple/8 animate-float-reverse" />
+      </div>
 
       <div className="relative max-w-6xl mx-auto">
         {/* ── Section heading ─────────────────────────────────── */}
@@ -139,7 +144,7 @@ export default function HalalSection() {
           <div className="lg:col-span-2">
             <StaggerChildren staggerDelay={0.15} className="flex flex-col gap-6">
               {/* Card 1: 두 가지 인증 경로 */}
-              <GlowCard variant="indigo">
+              <GlowCard variant="indigo" className="corner-dots corner-dots-indigo">
                 <h4 className="text-lg font-bold text-text-primary mb-4">
                   두 가지 인증 경로
                 </h4>
@@ -172,7 +177,7 @@ export default function HalalSection() {
               </GlowCard>
 
               {/* Card 2: 2025 규제 업데이트 */}
-              <GlowCard variant="indigo">
+              <GlowCard variant="indigo" className="corner-dots corner-dots-indigo">
                 <h4 className="text-lg font-bold text-text-primary mb-3 flex items-center gap-2">
                   <span>⚠️</span>
                   2025 규제 업데이트
@@ -210,7 +215,7 @@ export default function HalalSection() {
               </GlowCard>
 
               {/* Card 3: 카테고리별 필수 여부 */}
-              <GlowCard variant="indigo">
+              <GlowCard variant="indigo" className="corner-dots corner-dots-indigo">
                 <h4 className="text-lg font-bold text-text-primary mb-3">
                   카테고리별 필수 여부
                 </h4>

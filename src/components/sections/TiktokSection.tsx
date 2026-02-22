@@ -52,7 +52,7 @@ const topStats = [
 
 export default function TiktokSection() {
   return (
-    <section id="tiktok" className="relative py-24 md:py-32 px-4 sm:px-6 lg:px-8 section-slightly-lighter">
+    <section id="tiktok" className="relative py-24 md:py-32 px-4 sm:px-6 lg:px-8 section-slightly-lighter diagonal-accent">
       <div className="max-w-6xl mx-auto">
         {/* ── Section heading ─────────────────────────────────── */}
         <ScrollReveal>
@@ -91,7 +91,7 @@ export default function TiktokSection() {
             className="grid grid-cols-1 md:grid-cols-2 gap-6"
           >
             {tiktokServices.map((service) => (
-              <GlowCard key={service.title} variant="emerald">
+              <GlowCard key={service.title} variant="emerald" animated cornerDots>
                 <div className="flex items-center gap-3 mb-4">
                   <div className="icon-badge icon-badge-emerald">
                     {service.title === "셀러 온보딩" ? "🚀" : service.title === "숏폼 콘텐츠 제작" ? "🎬" : service.title === "라이브 커머스" ? "📡" : "📊"}

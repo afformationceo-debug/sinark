@@ -290,3 +290,218 @@ body {
   background: linear-gradient(90deg, transparent, currentColor, transparent);
   opacity: 0.2;
 }
+
+/* ═══════ ANIMATED GRADIENT BORDER ═══════ */
+@keyframes border-spin {
+  0% { --border-angle: 0deg; }
+  100% { --border-angle: 360deg; }
+}
+
+@property --border-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.gradient-border-indigo {
+  position: relative;
+  background: linear-gradient(135deg, rgba(99,102,241,0.12) 0%, rgba(99,102,241,0.04) 100%);
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+.gradient-border-indigo::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: conic-gradient(from var(--border-angle), rgba(99,102,241,0.1), rgba(99,102,241,0.5), rgba(168,85,247,0.4), rgba(99,102,241,0.1));
+  z-index: -1;
+  animation: border-spin 4s linear infinite;
+}
+.gradient-border-indigo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(99,102,241,0.12) 0%, rgba(3,7,18,0.95) 100%);
+  z-index: -1;
+}
+
+.gradient-border-cyan {
+  position: relative;
+  background: linear-gradient(135deg, rgba(6,182,212,0.12) 0%, rgba(6,182,212,0.04) 100%);
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+.gradient-border-cyan::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: conic-gradient(from var(--border-angle), rgba(6,182,212,0.1), rgba(6,182,212,0.5), rgba(59,130,246,0.4), rgba(6,182,212,0.1));
+  z-index: -1;
+  animation: border-spin 4s linear infinite;
+}
+.gradient-border-cyan::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(6,182,212,0.12) 0%, rgba(3,7,18,0.95) 100%);
+  z-index: -1;
+}
+
+.gradient-border-emerald {
+  position: relative;
+  background: linear-gradient(135deg, rgba(16,185,129,0.12) 0%, rgba(16,185,129,0.04) 100%);
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+.gradient-border-emerald::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: conic-gradient(from var(--border-angle), rgba(16,185,129,0.1), rgba(16,185,129,0.5), rgba(20,184,166,0.4), rgba(16,185,129,0.1));
+  z-index: -1;
+  animation: border-spin 4s linear infinite;
+}
+.gradient-border-emerald::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(16,185,129,0.12) 0%, rgba(3,7,18,0.95) 100%);
+  z-index: -1;
+}
+
+.gradient-border-amber {
+  position: relative;
+  background: linear-gradient(135deg, rgba(245,158,11,0.12) 0%, rgba(245,158,11,0.04) 100%);
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+.gradient-border-amber::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: conic-gradient(from var(--border-angle), rgba(245,158,11,0.1), rgba(245,158,11,0.5), rgba(249,115,22,0.4), rgba(245,158,11,0.1));
+  z-index: -1;
+  animation: border-spin 4s linear infinite;
+}
+.gradient-border-amber::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(245,158,11,0.12) 0%, rgba(3,7,18,0.95) 100%);
+  z-index: -1;
+}
+
+/* ═══════ CARD TOP ACCENT BAR ═══════ */
+.accent-bar-indigo { border-top: 2px solid; border-image: linear-gradient(90deg, #6366f1, #a855f7) 1; }
+.accent-bar-cyan { border-top: 2px solid; border-image: linear-gradient(90deg, #06b6d4, #3b82f6) 1; }
+.accent-bar-emerald { border-top: 2px solid; border-image: linear-gradient(90deg, #10b981, #14b8a6) 1; }
+.accent-bar-amber { border-top: 2px solid; border-image: linear-gradient(90deg, #f59e0b, #f97316) 1; }
+
+/* ═══════ CORNER ACCENTS ═══════ */
+.corner-dots {
+  position: relative;
+}
+.corner-dots::before,
+.corner-dots::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+.corner-dots::before {
+  top: 12px;
+  right: 12px;
+}
+.corner-dots::after {
+  bottom: 12px;
+  left: 12px;
+}
+.corner-dots-indigo::before, .corner-dots-indigo::after {
+  background: rgba(99,102,241,0.5);
+  box-shadow: 0 0 8px rgba(99,102,241,0.4);
+}
+.corner-dots-cyan::before, .corner-dots-cyan::after {
+  background: rgba(6,182,212,0.5);
+  box-shadow: 0 0 8px rgba(6,182,212,0.4);
+}
+.corner-dots-emerald::before, .corner-dots-emerald::after {
+  background: rgba(16,185,129,0.5);
+  box-shadow: 0 0 8px rgba(16,185,129,0.4);
+}
+.corner-dots-amber::before, .corner-dots-amber::after {
+  background: rgba(245,158,11,0.5);
+  box-shadow: 0 0 8px rgba(245,158,11,0.4);
+}
+
+/* ═══════ FLOATING DECORATIVE SHAPES ═══════ */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+}
+@keyframes float-reverse {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(15px) rotate(-3deg); }
+}
+@keyframes orbit {
+  0% { transform: rotate(0deg) translateX(40px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(40px) rotate(-360deg); }
+}
+.animate-float-slow { animation: float-slow 6s ease-in-out infinite; }
+.animate-float-reverse { animation: float-reverse 5s ease-in-out infinite; }
+.animate-orbit { animation: orbit 12s linear infinite; }
+
+/* ═══════ GRID PATTERN OVERLAY ═══════ */
+.grid-pattern {
+  background-image:
+    linear-gradient(rgba(99,102,241,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99,102,241,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ═══════ GRADIENT UNDERLINE ═══════ */
+.gradient-underline {
+  position: relative;
+  display: inline-block;
+}
+.gradient-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #6366f1, #06b6d4, transparent);
+  border-radius: 1px;
+}
+
+/* ═══════ GLASS MORPHISM ═══════ */
+.glass {
+  background: rgba(3,7,18,0.6);
+  backdrop-filter: blur(20px) saturate(1.5);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* ═══════ DIAGONAL ACCENT ═══════ */
+.diagonal-accent {
+  position: relative;
+  overflow: hidden;
+}
+.diagonal-accent::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, rgba(99,102,241,0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
