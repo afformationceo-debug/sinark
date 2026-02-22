@@ -1,9 +1,8 @@
 "use client";
 
+import { Rocket, Building2 } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
-import GlowCard from "@/components/ui/GlowCard";
-import DiamondConnector from "@/components/ui/DiamondConnector";
-import NodeConnector from "@/components/ui/NodeConnector";
+import Card from "@/components/ui/Card";
 import ScrollReveal from "@/components/animation/ScrollReveal";
 
 const afformationBullets = [
@@ -24,15 +23,10 @@ const sinarmasBullets = [
 
 export default function PartnershipSection() {
   return (
-    <section id="partnership" className="relative py-24 md:py-32 px-4 sm:px-6 lg:px-8 section-slightly-lighter">
-      {/* Floating geometric decorations */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute top-[15%] left-[5%] w-20 h-20 rounded-full border border-brand-indigo/10 animate-float-slow" />
-        <div className="absolute bottom-[20%] right-[8%] w-16 h-16 rotate-45 border border-brand-amber/10 animate-float-reverse" />
-        <div className="absolute top-[60%] left-[85%] w-3 h-3 rounded-full bg-brand-indigo/20 animate-pulse-glow" />
-        <div className="absolute top-[30%] right-[90%] w-2 h-2 rounded-full bg-brand-amber/20 animate-pulse-glow" style={{ animationDelay: "1s" }} />
-      </div>
-
+    <section
+      id="partnership"
+      className="relative py-24 md:py-32 px-4 sm:px-6 lg:px-8 section-slightly-lighter"
+    >
       <div className="max-w-6xl mx-auto">
         {/* ── Section heading ─────────────────────────────────── */}
         <ScrollReveal>
@@ -45,113 +39,109 @@ export default function PartnershipSection() {
         </ScrollReveal>
 
         {/* ── Two-column layout with center connector ─────────── */}
-        <div className="mt-16 grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-8 lg:gap-0 items-center">
-          {/* Left card – Afformation */}
+        <div className="mt-16 grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-8 lg:gap-6 items-center">
+          {/* Left card -- Afformation */}
           <ScrollReveal direction="left" delay={0.2}>
-            <GlowCard variant="indigo" animated className="h-full">
-              <h3 className="text-2xl font-bold gradient-text mb-1">
-                Afformation
-              </h3>
-              <p className="text-text-secondary text-sm mb-4">
-                마케팅 테크 전문 기업
-              </p>
+            <Card variant="elevated" color="indigo" className="h-full">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-indigo-500/10">
+                  <Rocket className="w-5 h-5 text-indigo-400" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-text-primary">
+                    Afformation
+                  </h3>
+                  <p className="text-text-secondary text-xs tracking-wide">
+                    마케팅 테크 전문 기업
+                  </p>
+                </div>
+              </div>
 
-              <div className="h-px bg-dark-border mb-5" />
+              <div className="h-px bg-white/6 mb-5" />
 
               <ul className="space-y-3 mb-6">
                 {afformationBullets.map((item) => (
                   <li
                     key={item}
-                    className="flex items-start gap-2.5 text-sm text-text-secondary leading-relaxed"
+                    className="flex items-start gap-2.5 text-[15px] text-text-secondary leading-relaxed"
                   >
-                    <span className="mt-1.5 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-brand-indigo" />
+                    <span className="mt-1.5 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-indigo-400" />
                     {item}
                   </li>
                 ))}
               </ul>
 
-              <div className="rounded-lg bg-dark-surface/60 border border-dark-border/50 px-4 py-3">
+              <div className="rounded-lg bg-white/[0.02] border border-white/6 px-4 py-3">
                 <p className="text-xs text-text-tertiary">
-                  <span className="text-brand-indigo font-semibold">핵심 역량:</span>{" "}
+                  <span className="text-indigo-400 font-semibold">핵심 역량:</span>{" "}
                   마케팅 전략 / AI 자동화 / 글로벌 운영
                 </p>
               </div>
-            </GlowCard>
+            </Card>
           </ScrollReveal>
 
           {/* Center connector */}
-          <ScrollReveal delay={0.4} className="flex flex-col lg:flex-row items-center justify-center gap-2 py-6 lg:py-0 lg:px-4">
-            {/* Mobile: vertical layout */}
-            <div className="flex lg:hidden flex-col items-center gap-2">
-              <NodeConnector variant="dashed" color="indigo" vertical className="!h-[40px]" />
-              <DiamondConnector color="indigo" size="sm" animated />
-              <div className="w-12 h-12 rounded-full bg-brand-indigo/20 border border-brand-indigo/40 flex items-center justify-center shadow-lg shadow-brand-indigo/20">
-                <span className="text-xl font-black text-brand-indigo">&times;</span>
-              </div>
-              <DiamondConnector color="amber" size="sm" animated />
-              <NodeConnector variant="dashed" color="amber" vertical className="!h-[40px]" />
-            </div>
-
-            {/* Desktop: horizontal layout */}
-            <div className="hidden lg:flex items-center gap-2">
-              <NodeConnector variant="dashed" color="indigo" vertical={false} />
-              <DiamondConnector color="indigo" size="sm" animated />
-              <div className="w-12 h-12 rounded-full bg-brand-indigo/20 border border-brand-indigo/40 flex items-center justify-center shadow-lg shadow-brand-indigo/20">
-                <span className="text-xl font-black text-brand-indigo">&times;</span>
-              </div>
-              <DiamondConnector color="amber" size="sm" animated />
-              <NodeConnector variant="dashed" color="amber" vertical={false} />
+          <ScrollReveal delay={0.4} className="flex items-center justify-center py-4 lg:py-0 lg:px-2">
+            <div className="w-10 h-10 rounded-full border border-white/10 bg-white/[0.03] flex items-center justify-center">
+              <span className="text-lg font-semibold text-text-secondary">&times;</span>
             </div>
           </ScrollReveal>
 
-          {/* Right card – Sinarmas Group */}
+          {/* Right card -- Sinarmas Group */}
           <ScrollReveal direction="right" delay={0.2}>
-            <GlowCard variant="amber" animated className="h-full">
-              <h3 className="text-2xl font-bold gradient-text-amber mb-1">
-                Sinarmas Group
-              </h3>
-              <p className="text-text-secondary text-sm mb-4">
-                인도네시아 최대 재벌 그룹
-              </p>
+            <Card variant="elevated" color="amber" className="h-full">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-amber-500/10">
+                  <Building2 className="w-5 h-5 text-amber-400" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-text-primary">
+                    Sinarmas Group
+                  </h3>
+                  <p className="text-text-secondary text-xs tracking-wide">
+                    인도네시아 최대 재벌 그룹
+                  </p>
+                </div>
+              </div>
 
-              <div className="h-px bg-dark-border mb-5" />
+              <div className="h-px bg-white/6 mb-5" />
 
               <ul className="space-y-3 mb-6">
                 {sinarmasBullets.map((item) => (
                   <li
                     key={item}
-                    className="flex items-start gap-2.5 text-sm text-text-secondary leading-relaxed"
+                    className="flex items-start gap-2.5 text-[15px] text-text-secondary leading-relaxed"
                   >
-                    <span className="mt-1.5 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-brand-amber" />
+                    <span className="mt-1.5 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-amber-400" />
                     {item}
                   </li>
                 ))}
               </ul>
 
-              <div className="rounded-lg bg-dark-surface/60 border border-dark-border/50 px-4 py-3">
+              <div className="rounded-lg bg-white/[0.02] border border-white/6 px-4 py-3">
                 <p className="text-xs text-text-tertiary">
-                  <span className="text-brand-amber font-semibold">핵심 역량:</span>{" "}
+                  <span className="text-amber-400 font-semibold">핵심 역량:</span>{" "}
                   인도네시아 유통망 / 정부 네트워크 / 현지 인프라
                 </p>
               </div>
-            </GlowCard>
+            </Card>
           </ScrollReveal>
         </div>
 
         {/* ── Bottom banner ───────────────────────────────────── */}
         <ScrollReveal delay={0.5}>
           <div className="mt-16">
-            <GlowCard variant="purple" animated className="text-center py-8 px-6">
-              <p className="text-base md:text-lg font-medium text-text-secondary leading-relaxed">
-                <span className="gradient-text font-bold">K브랜드 전문 마케팅 테크</span>
+            <Card variant="featured" color="indigo" className="text-center py-8 px-6">
+              <p className="text-[15px] md:text-base font-medium text-text-secondary leading-relaxed">
+                <span className="gradient-text font-semibold">K브랜드 전문 마케팅 테크</span>
                 {" "}&times;{" "}
-                <span className="gradient-text-amber font-bold">인도네시아 최대 인프라</span>
+                <span className="text-amber-400 font-semibold">인도네시아 최대 인프라</span>
                 <br className="hidden sm:block" />
                 <span className="mt-2 block text-text-primary">
                   = 당신의 브랜드를 위한 최강 진출 파트너십
                 </span>
               </p>
-            </GlowCard>
+            </Card>
           </div>
         </ScrollReveal>
       </div>

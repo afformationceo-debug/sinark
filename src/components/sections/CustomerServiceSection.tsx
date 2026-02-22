@@ -1,166 +1,253 @@
 "use client";
 
+import { Headphones, MessageCircle, Bot, BarChart3, Phone } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
-import GlowCard from "@/components/ui/GlowCard";
-import DiamondConnector from "@/components/ui/DiamondConnector";
-import NodeConnector from "@/components/ui/NodeConnector";
+import Card from "@/components/ui/Card";
 import ScrollReveal from "@/components/animation/ScrollReveal";
+import StaggerChildren from "@/components/animation/StaggerChildren";
 
-const whatsappFeatures = [
-  "인도네시아 1위 메신저 (DAU 1억+)",
-  "자동 인사/FAQ 챗봇 설정",
-  "주문 상태 자동 알림",
-  "카탈로그 기능으로 상품 안내",
-];
-
-const middleNodes = [
+/* ── Chat mockup data ──────────────────────────────────────────── */
+const chatMessages = [
   {
-    title: "챗봇 자동응답",
-    items: [
-      "FAQ 기반 자동 응답",
-      "주문/배송 상태 조회",
-      "24시간 무중단 운영",
-    ],
+    sender: "customer",
+    text: "Halo, saya mau tanya soal produk skincare dari Korea",
+    time: "09:12",
   },
   {
-    title: "CS팀 운영",
-    items: [
-      "인도네시아어/영어/한국어 3개 국어",
-      "평일 09:00-21:00 (WIB) 운영",
-      "평균 응답 시간 목표: 30분 이내",
-      "에스컬레이션 프로세스 수립",
-    ],
+    sender: "agent",
+    text: "Halo! Selamat datang di K-Brand CS. Ada yang bisa kami bantu mengenai produk kami?",
+    time: "09:12",
   },
   {
-    title: "CRM 시스템",
-    items: [
-      "문의 티켓 시스템",
-      "VIP 고객 관리 프로세스",
-      "월간 CS 리포트",
-    ],
+    sender: "customer",
+    text: "Apakah serum ini cocok untuk kulit berminyak?",
+    time: "09:13",
+  },
+  {
+    sender: "agent",
+    text: "Tentu! Serum ini diformulasikan khusus untuk kulit berminyak. Mengandung Niacinamide 10% untuk mengontrol sebum. Mau kami kirimkan katalog lengkapnya?",
+    time: "09:14",
   },
 ];
 
-const satisfactionFeatures = [
-  "고객 만족도(CSAT) 정기 조사",
-  "리뷰 관리 & 네거티브 대응",
-  "재구매 유도 프로그램",
+/* ── Hub-spoke node data ───────────────────────────────────────── */
+const spokeNodes = [
+  { label: "WhatsApp", icon: MessageCircle, angle: 0 },
+  { label: "LiveChat", icon: Phone, angle: 90 },
+  { label: "FAQ Bot", icon: Bot, angle: 180 },
+  { label: "VOC Analysis", icon: BarChart3, angle: 270 },
+];
+
+/* ── Feature list ──────────────────────────────────────────────── */
+const features = [
+  {
+    title: "3개 국어 대응",
+    desc: "인도네시아어 / 영어 / 한국어 실시간 CS 운영",
+  },
+  {
+    title: "평균 응답 30분 이내",
+    desc: "평일 09:00-21:00(WIB) 전담팀 운영",
+  },
+  {
+    title: "VOC 리포트",
+    desc: "월간 고객 불만/문의 유형 분석 리포트 제공",
+  },
+  {
+    title: "에스컬레이션 프로세스",
+    desc: "티켓 시스템 기반 이슈 추적 및 본사 연동",
+  },
 ];
 
 export default function CustomerServiceSection() {
   return (
-    <section id="cs" className="relative py-24 md:py-32 px-4 sm:px-6 lg:px-8 section-phase-amber phase-accent-amber">
-      {/* Floating geometric shapes */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute top-[12%] left-[6%] w-24 h-24 rounded-full border border-brand-amber/10 animate-float-slow" />
-        <div className="absolute bottom-[18%] right-[7%] w-16 h-16 rotate-45 border border-brand-amber/10 animate-float-reverse" />
-        <div className="absolute top-[55%] left-[85%] w-3 h-3 rounded-full bg-brand-amber/20 animate-pulse-glow" />
-        <div className="absolute top-[30%] right-[80%] w-2 h-2 rounded-full bg-brand-amber/20 animate-pulse-glow" style={{ animationDelay: "1s" }} />
-      </div>
-
+    <section
+      id="cs"
+      className="relative py-24 md:py-32 px-4 sm:px-6 lg:px-8 section-phase-amber"
+    >
       <div className="max-w-6xl mx-auto">
         {/* ── Section heading ─────────────────────────────────── */}
         <ScrollReveal>
           <SectionHeading
-            badge="Phase 4 · 운영 & 성장"
+            badge="Phase 4 - CS"
             title="인도네시아 고객 서비스 채널"
             subtitle="현지 언어로, 현지 시간에, 현지 채널로 고객을 응대합니다"
-            icon="💬"
+            icon={<Headphones size={16} />}
             align="center"
           />
         </ScrollReveal>
 
-        {/* ── Node diagram ────────────────────────────────────── */}
-        <div className="mt-16 flex flex-col items-center">
-          {/* Top node: WhatsApp Business */}
-          <ScrollReveal delay={0.1}>
-            <GlowCard variant="amber" animated className="max-w-md w-full text-center">
-              <div className="flex items-center justify-center gap-3 mb-4">
-                <div className="icon-badge icon-badge-amber">💬</div>
-                <h3 className="text-xl font-bold text-text-primary">
-                  WhatsApp Business API
-                </h3>
-              </div>
-              <ul className="space-y-2.5 text-left">
-                {whatsappFeatures.map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-start gap-2.5 text-sm text-text-secondary leading-relaxed"
-                  >
-                    <span className="mt-1.5 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-brand-amber" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </GlowCard>
-          </ScrollReveal>
-
-          {/* Vertical connector + diamond */}
-          <ScrollReveal delay={0.2}>
-            <div className="flex flex-col items-center py-1">
-              <NodeConnector variant="dashed" color="amber" vertical />
-              <DiamondConnector color="amber" size="md" animated />
-              <NodeConnector variant="dashed" color="amber" vertical />
-            </div>
-          </ScrollReveal>
-
-          {/* Middle row: 3 branching nodes */}
-          <ScrollReveal delay={0.3} className="w-full">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {middleNodes.map((node) => (
-                <GlowCard key={node.title} variant="amber" cornerDots>
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="icon-badge icon-badge-amber">
-                      {node.title === "챗봇 자동응답" ? "🤖" : node.title === "CS팀 운영" ? "👥" : "📋"}
-                    </div>
-                    <h3 className="text-lg font-bold text-text-primary">
-                      {node.title}
-                    </h3>
+        {/* ── Two-column layout ───────────────────────────────── */}
+        <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+          {/* ── Left: WhatsApp-style chat mockup ──────────────── */}
+          <ScrollReveal direction="left" delay={0.1}>
+            <div className="rounded-2xl border border-white/8 bg-[#0b141a] overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.3)]">
+              {/* Chat header */}
+              <div className="flex items-center gap-3 px-4 py-3 bg-[#1f2c34] border-b border-white/6">
+                <div className="w-9 h-9 rounded-full bg-amber-500/20 flex items-center justify-center">
+                  <Headphones size={16} className="text-amber-400" />
+                </div>
+                <div className="flex-1">
+                  <p className="text-sm font-semibold text-white/90">
+                    K-Brand CS
+                  </p>
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                    <span className="text-[11px] text-white/50">Online</span>
                   </div>
-                  <ul className="space-y-2">
-                    {node.items.map((item) => (
-                      <li
-                        key={item}
-                        className="flex items-start gap-2.5 text-sm text-text-secondary leading-relaxed"
-                      >
-                        <span className="mt-1.5 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-brand-amber" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </GlowCard>
-              ))}
-            </div>
-          </ScrollReveal>
+                </div>
+                <Phone size={18} className="text-white/40" />
+              </div>
 
-          {/* Vertical connectors merge */}
-          <ScrollReveal delay={0.4}>
-            <div className="flex flex-col items-center py-1">
-              <NodeConnector variant="dashed" color="amber" vertical />
-              <DiamondConnector color="amber" size="md" animated />
-              <NodeConnector variant="dashed" color="amber" vertical />
-            </div>
-          </ScrollReveal>
-
-          {/* Bottom node: Customer satisfaction */}
-          <ScrollReveal delay={0.5}>
-            <GlowCard variant="amber" className="max-w-md w-full text-center">
-              <h3 className="text-xl font-bold text-text-primary mb-4">
-                고객 만족도 관리
-              </h3>
-              <ul className="space-y-2.5 text-left">
-                {satisfactionFeatures.map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-start gap-2.5 text-sm text-text-secondary leading-relaxed"
+              {/* Chat body */}
+              <div className="px-3 py-4 space-y-3 min-h-[320px]">
+                {chatMessages.map((msg, i) => (
+                  <div
+                    key={i}
+                    className={`flex ${
+                      msg.sender === "customer" ? "justify-end" : "justify-start"
+                    }`}
                   >
-                    <span className="mt-1.5 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-brand-amber" />
-                    {item}
-                  </li>
+                    <div
+                      className={`max-w-[80%] rounded-xl px-3.5 py-2.5 ${
+                        msg.sender === "customer"
+                          ? "bg-[#005c4b] rounded-tr-sm"
+                          : "bg-[#1f2c34] rounded-tl-sm"
+                      }`}
+                    >
+                      <p className="text-[13px] text-white/90 leading-relaxed">
+                        {msg.text}
+                      </p>
+                      <p
+                        className={`text-[10px] mt-1 ${
+                          msg.sender === "customer"
+                            ? "text-white/40 text-right"
+                            : "text-white/40 text-right"
+                        }`}
+                      >
+                        {msg.time}
+                      </p>
+                    </div>
+                  </div>
                 ))}
-              </ul>
-            </GlowCard>
+              </div>
+
+              {/* Chat input bar */}
+              <div className="flex items-center gap-2 px-3 py-2.5 bg-[#1f2c34] border-t border-white/6">
+                <div className="flex-1 rounded-full bg-[#2a3942] px-4 py-2">
+                  <p className="text-xs text-white/30">메시지를 입력하세요...</p>
+                </div>
+                <div className="w-8 h-8 rounded-full bg-amber-500/20 flex items-center justify-center">
+                  <MessageCircle size={14} className="text-amber-400" />
+                </div>
+              </div>
+            </div>
           </ScrollReveal>
+
+          {/* ── Right: Hub-spoke SVG + features ───────────────── */}
+          <div className="flex flex-col gap-8">
+            {/* Hub-spoke SVG diagram */}
+            <ScrollReveal direction="right" delay={0.2}>
+              <div className="flex justify-center">
+                <svg
+                  viewBox="0 0 320 320"
+                  className="w-full max-w-[320px]"
+                  fill="none"
+                >
+                  {/* Connecting lines */}
+                  {spokeNodes.map((node, i) => {
+                    const cx = 160;
+                    const cy = 160;
+                    const r = 110;
+                    const rad = (node.angle - 90) * (Math.PI / 180);
+                    const x = cx + r * Math.cos(rad);
+                    const y = cy + r * Math.sin(rad);
+                    return (
+                      <line
+                        key={`line-${i}`}
+                        x1={cx}
+                        y1={cy}
+                        x2={x}
+                        y2={y}
+                        stroke="rgba(245,158,11,0.25)"
+                        strokeWidth="1.5"
+                        strokeDasharray="6 4"
+                      />
+                    );
+                  })}
+
+                  {/* Center hub */}
+                  <circle
+                    cx="160"
+                    cy="160"
+                    r="36"
+                    fill="rgba(245,158,11,0.08)"
+                    stroke="rgba(245,158,11,0.3)"
+                    strokeWidth="1.5"
+                  />
+                  <text
+                    x="160"
+                    y="156"
+                    textAnchor="middle"
+                    className="fill-amber-400 text-[13px] font-bold"
+                  >
+                    CS
+                  </text>
+                  <text
+                    x="160"
+                    y="172"
+                    textAnchor="middle"
+                    className="fill-amber-400 text-[13px] font-bold"
+                  >
+                    Hub
+                  </text>
+
+                  {/* Spoke nodes */}
+                  {spokeNodes.map((node, i) => {
+                    const cx = 160;
+                    const cy = 160;
+                    const r = 110;
+                    const rad = (node.angle - 90) * (Math.PI / 180);
+                    const x = cx + r * Math.cos(rad);
+                    const y = cy + r * Math.sin(rad);
+                    return (
+                      <g key={`spoke-${i}`}>
+                        <circle
+                          cx={x}
+                          cy={y}
+                          r="28"
+                          fill="rgba(245,158,11,0.06)"
+                          stroke="rgba(245,158,11,0.2)"
+                          strokeWidth="1"
+                        />
+                        <text
+                          x={x}
+                          y={y + 4}
+                          textAnchor="middle"
+                          className="fill-white/70 text-[10px] font-medium"
+                        >
+                          {node.label}
+                        </text>
+                      </g>
+                    );
+                  })}
+                </svg>
+              </div>
+            </ScrollReveal>
+
+            {/* Feature list */}
+            <StaggerChildren staggerDelay={0.08} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {features.map((f) => (
+                <Card key={f.title} variant="surface" color="amber">
+                  <h4 className="text-sm font-semibold text-text-primary mb-1">
+                    {f.title}
+                  </h4>
+                  <p className="text-xs text-text-secondary leading-relaxed">
+                    {f.desc}
+                  </p>
+                </Card>
+              ))}
+            </StaggerChildren>
+          </div>
         </div>
       </div>
     </section>

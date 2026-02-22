@@ -1,13 +1,17 @@
 "use client";
 
+import { Building2, Import, Building } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
-import GlowCard from "@/components/ui/GlowCard";
+import ServiceIcon from "@/components/ui/ServiceIcon";
 import ScrollReveal from "@/components/animation/ScrollReveal";
-import StaggerChildren from "@/components/animation/StaggerChildren";
+import Accordion from "@/components/ui/Accordion";
 
-const licensingCards = [
+const licensingData = [
   {
+    id: "bpom",
     title: "BPOM 등록 (식약처)",
+    icon: <Building2 size={18} />,
+    duration: "소요기간: 2-4개월",
     sections: [
       {
         heading: "화장품 등록 (Notifikasi)",
@@ -33,10 +37,12 @@ const licensingCards = [
         ],
       },
     ],
-    duration: "소요기간: 2-4개월",
   },
   {
+    id: "import-license",
     title: "수입 라이선스 취득",
+    icon: <Import size={18} />,
+    duration: "소요기간: 1-3개월",
     sections: [
       {
         heading: "API-U (수입업자 등록)",
@@ -60,10 +66,12 @@ const licensingCards = [
         ],
       },
     ],
-    duration: "소요기간: 1-3개월",
   },
   {
+    id: "pt-pma",
     title: "PT PMA 법인 설립",
+    icon: <Building size={18} />,
+    duration: "소요기간: 4-8주",
     sections: [
       {
         heading: "외국인 투자 법인 설립",
@@ -87,81 +95,74 @@ const licensingCards = [
         ],
       },
     ],
-    duration: "소요기간: 4-8주",
   },
 ];
 
+const accordionItems = licensingData.map((card) => ({
+  id: card.id,
+  title: card.title,
+  icon: card.icon,
+  content: (
+    <div className="space-y-5">
+      {card.sections.map((section) => (
+        <div key={section.heading}>
+          <p className="text-sm font-semibold text-indigo-400 mb-2">
+            {section.heading}
+          </p>
+          <ul className="space-y-1.5">
+            {section.items.map((item) => (
+              <li
+                key={item}
+                className="text-[15px] text-text-secondary flex items-start gap-2"
+              >
+                <span className="text-indigo-400/50 mt-0.5 flex-shrink-0">
+                  ›
+                </span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+
+      {/* Duration tag */}
+      <div className="pt-3 border-t border-indigo-500/10">
+        <span className="text-xs font-medium text-indigo-400 bg-indigo-500/10 px-3 py-1 rounded-full">
+          {card.duration}
+        </span>
+      </div>
+    </div>
+  ),
+}));
+
 export default function LicensingSection() {
   return (
-    <section id="licensing" className="relative py-24 md:py-32 px-4 sm:px-6 lg:px-8 section-slightly-lighter">
-      {/* Background accent */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute top-1/3 right-0 w-[600px] h-[600px] bg-gradient-radial-indigo opacity-15 blur-3xl"
-      />
-
+    <section
+      id="licensing"
+      className="relative py-24 md:py-32 px-4 sm:px-6 lg:px-8 section-slightly-lighter"
+    >
       <div className="relative max-w-6xl mx-auto">
-        {/* ── Section heading ─────────────────────────────────── */}
+        {/* Section heading */}
         <ScrollReveal>
           <SectionHeading
             badge="Phase 1 · 시장진입 준비"
             title="인허가 & 수입 라이선스"
             subtitle="인도네시아 시장의 문을 법적으로 열어드립니다"
-            icon="📋"
+            icon={<ServiceIcon serviceId="license" color="indigo" size="sm" />}
             align="center"
           />
         </ScrollReveal>
 
-        {/* ── 3-column card grid ──────────────────────────────── */}
-        <div className="mt-16">
-          <StaggerChildren
-            staggerDelay={0.15}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6"
-          >
-            {licensingCards.map((card) => (
-              <GlowCard key={card.title} variant="indigo" animated className="flex flex-col corner-dots corner-dots-indigo">
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="icon-badge icon-badge-indigo">
-                    {card.title === "BPOM 등록 (식약처)" ? "🏥" : card.title === "수입 라이선스 취득" ? "📜" : "🏢"}
-                  </div>
-                  <h4 className="text-lg font-bold text-text-primary">
-                    {card.title}
-                  </h4>
-                </div>
-
-                <div className="flex-1 space-y-4">
-                  {card.sections.map((section) => (
-                    <div key={section.heading}>
-                      <p className="text-sm font-semibold text-brand-indigo mb-1.5">
-                        {section.heading}
-                      </p>
-                      <ul className="space-y-1">
-                        {section.items.map((item) => (
-                          <li
-                            key={item}
-                            className="text-sm text-text-secondary flex items-start gap-2"
-                          >
-                            <span className="text-brand-indigo/60 mt-0.5 flex-shrink-0">
-                              ›
-                            </span>
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Duration tag */}
-                <div className="mt-5 pt-4 border-t border-brand-indigo/20">
-                  <span className="text-xs font-medium text-brand-indigo bg-brand-indigo/10 px-3 py-1 rounded-full">
-                    {card.duration}
-                  </span>
-                </div>
-              </GlowCard>
-            ))}
-          </StaggerChildren>
-        </div>
+        {/* Accordion */}
+        <ScrollReveal delay={0.15}>
+          <div className="mt-16 max-w-3xl mx-auto">
+            <Accordion
+              items={accordionItems}
+              color="indigo"
+              allowMultiple={false}
+            />
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

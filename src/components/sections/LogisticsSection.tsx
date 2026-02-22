@@ -1,7 +1,17 @@
 "use client";
 
+import {
+  Factory,
+  Ship,
+  Warehouse,
+  PackageCheck,
+  Truck,
+  Store,
+  BarChart3,
+} from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
-import GlowCard from "@/components/ui/GlowCard";
+import ServiceIcon from "@/components/ui/ServiceIcon";
+import Card from "@/components/ui/Card";
 import ScrollReveal from "@/components/animation/ScrollReveal";
 import StaggerChildren from "@/components/animation/StaggerChildren";
 
@@ -9,6 +19,7 @@ const detailCards = [
   {
     number: "01",
     title: "국제 물류 & 통관",
+    icon: Ship,
     items: [
       "해상/항공 운송",
       "HS 코드 분류 & 관세율 최적화",
@@ -19,6 +30,7 @@ const detailCards = [
   {
     number: "02",
     title: "온라인 풀필먼트 (B2C)",
+    icon: PackageCheck,
     items: [
       "자카르타/반둥 풀필먼트 센터",
       "48시간 출고 SLA",
@@ -29,6 +41,7 @@ const detailCards = [
   {
     number: "03",
     title: "오프라인 유통 (B2B)",
+    icon: Store,
     items: [
       "Ranch Market, Kem Chicks",
       "Indomaret (21,000+)",
@@ -38,6 +51,7 @@ const detailCards = [
   {
     number: "04",
     title: "재고 관리 & 리포팅",
+    icon: BarChart3,
     items: [
       "실시간 재고 모니터링",
       "리오더 자동 알림",
@@ -46,139 +60,379 @@ const detailCards = [
   },
 ];
 
-const flowNodes = [
-  { label: "한국 공장/브랜드", icon: "🏭" },
-  { label: "국제 운송", icon: "🚢" },
-  { label: "자카르타 물류센터", icon: "🏗️" },
-];
+/* SVG Flow Diagram Component */
+function FlowDiagram() {
+  return (
+    <div className="w-full overflow-x-auto">
+      {/* Desktop SVG flow */}
+      <div className="hidden md:block">
+        <svg
+          viewBox="0 0 900 320"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full max-w-4xl mx-auto"
+          role="img"
+          aria-label="물류 흐름도: 한국 공장에서 자카르타 물류센터를 거쳐 3개 유통 채널로 분기"
+        >
+          {/* Connection lines: top row */}
+          <path
+            d="M 200 80 L 330 80"
+            stroke="rgb(99 102 241 / 0.3)"
+            strokeWidth="2"
+            strokeDasharray="6 4"
+            markerEnd="url(#arrowhead)"
+          />
+          <path
+            d="M 530 80 L 660 80"
+            stroke="rgb(99 102 241 / 0.3)"
+            strokeWidth="2"
+            strokeDasharray="6 4"
+            markerEnd="url(#arrowhead)"
+          />
 
-const branchNodes = [
-  { label: "온라인 풀필먼트", icon: "📦" },
-  { label: "오프라인 유통", icon: "🏪" },
-  { label: "리테일 입점", icon: "🛍️" },
-];
+          {/* Branching lines from center bottom */}
+          <path
+            d="M 780 110 L 780 180"
+            stroke="rgb(99 102 241 / 0.3)"
+            strokeWidth="2"
+            strokeDasharray="6 4"
+          />
+          {/* Branch to left */}
+          <path
+            d="M 780 180 L 450 180 L 450 210"
+            stroke="rgb(99 102 241 / 0.3)"
+            strokeWidth="2"
+            strokeDasharray="6 4"
+            markerEnd="url(#arrowhead)"
+          />
+          {/* Branch to center-right */}
+          <path
+            d="M 780 180 L 780 210"
+            stroke="rgb(99 102 241 / 0.3)"
+            strokeWidth="2"
+            strokeDasharray="6 4"
+            markerEnd="url(#arrowhead)"
+          />
+          {/* Branch to far right - but keep within viewbox */}
+          <path
+            d="M 780 180 L 450 180"
+            stroke="rgb(99 102 241 / 0.3)"
+            strokeWidth="2"
+            strokeDasharray="6 4"
+          />
+          <path
+            d="M 450 180 L 150 180 L 150 210"
+            stroke="rgb(99 102 241 / 0.3)"
+            strokeWidth="2"
+            strokeDasharray="6 4"
+            markerEnd="url(#arrowhead)"
+          />
+
+          {/* Arrow marker */}
+          <defs>
+            <marker
+              id="arrowhead"
+              markerWidth="8"
+              markerHeight="6"
+              refX="8"
+              refY="3"
+              orient="auto"
+            >
+              <polygon
+                points="0 0, 8 3, 0 6"
+                fill="rgb(99 102 241 / 0.4)"
+              />
+            </marker>
+          </defs>
+
+          {/* Node 1: 한국 공장 */}
+          <rect
+            x="30"
+            y="45"
+            width="170"
+            height="70"
+            rx="14"
+            fill="rgb(99 102 241 / 0.06)"
+            stroke="rgb(99 102 241 / 0.2)"
+            strokeWidth="1"
+          />
+          <foreignObject x="30" y="45" width="170" height="70">
+            <div className="flex items-center justify-center gap-2 h-full px-3">
+              <Factory size={20} className="text-indigo-400 flex-shrink-0" />
+              <span className="text-sm font-semibold text-text-primary">
+                한국 공장
+              </span>
+            </div>
+          </foreignObject>
+
+          {/* Node 2: 국제 운송 */}
+          <rect
+            x="330"
+            y="45"
+            width="200"
+            height="70"
+            rx="14"
+            fill="rgb(99 102 241 / 0.06)"
+            stroke="rgb(99 102 241 / 0.2)"
+            strokeWidth="1"
+          />
+          <foreignObject x="330" y="45" width="200" height="70">
+            <div className="flex items-center justify-center gap-2 h-full px-3">
+              <Ship size={20} className="text-indigo-400 flex-shrink-0" />
+              <span className="text-sm font-semibold text-text-primary">
+                국제 운송
+              </span>
+            </div>
+          </foreignObject>
+
+          {/* Node 3: 자카르타 물류센터 */}
+          <rect
+            x="660"
+            y="45"
+            width="210"
+            height="70"
+            rx="14"
+            fill="rgb(99 102 241 / 0.08)"
+            stroke="rgb(99 102 241 / 0.3)"
+            strokeWidth="1"
+          />
+          <foreignObject x="660" y="45" width="210" height="70">
+            <div className="flex items-center justify-center gap-2 h-full px-3">
+              <Warehouse size={20} className="text-indigo-400 flex-shrink-0" />
+              <span className="text-sm font-semibold text-text-primary">
+                자카르타 물류센터
+              </span>
+            </div>
+          </foreignObject>
+
+          {/* Branch Node 1: 온라인 풀필먼트 */}
+          <rect
+            x="60"
+            y="215"
+            width="180"
+            height="60"
+            rx="12"
+            fill="rgb(99 102 241 / 0.04)"
+            stroke="rgb(99 102 241 / 0.15)"
+            strokeWidth="1"
+          />
+          <foreignObject x="60" y="215" width="180" height="60">
+            <div className="flex items-center justify-center gap-2 h-full px-3">
+              <PackageCheck size={16} className="text-indigo-400 flex-shrink-0" />
+              <span className="text-xs font-semibold text-text-primary">
+                온라인 풀필먼트
+              </span>
+            </div>
+          </foreignObject>
+
+          {/* Branch Node 2: 오프라인 유통 */}
+          <rect
+            x="360"
+            y="215"
+            width="180"
+            height="60"
+            rx="12"
+            fill="rgb(99 102 241 / 0.04)"
+            stroke="rgb(99 102 241 / 0.15)"
+            strokeWidth="1"
+          />
+          <foreignObject x="360" y="215" width="180" height="60">
+            <div className="flex items-center justify-center gap-2 h-full px-3">
+              <Truck size={16} className="text-indigo-400 flex-shrink-0" />
+              <span className="text-xs font-semibold text-text-primary">
+                오프라인 유통
+              </span>
+            </div>
+          </foreignObject>
+
+          {/* Branch Node 3: 리테일 입점 */}
+          <rect
+            x="690"
+            y="215"
+            width="180"
+            height="60"
+            rx="12"
+            fill="rgb(99 102 241 / 0.04)"
+            stroke="rgb(99 102 241 / 0.15)"
+            strokeWidth="1"
+          />
+          <foreignObject x="690" y="215" width="180" height="60">
+            <div className="flex items-center justify-center gap-2 h-full px-3">
+              <Store size={16} className="text-indigo-400 flex-shrink-0" />
+              <span className="text-xs font-semibold text-text-primary">
+                리테일 입점
+              </span>
+            </div>
+          </foreignObject>
+        </svg>
+      </div>
+
+      {/* Mobile: vertical flow */}
+      <div className="md:hidden flex flex-col items-center gap-3">
+        {/* Main flow nodes */}
+        {[
+          { label: "한국 공장", icon: Factory },
+          { label: "국제 운송", icon: Ship },
+          { label: "자카르타 물류센터", icon: Warehouse },
+        ].map((node, idx) => (
+          <div key={node.label} className="flex flex-col items-center">
+            <div className="flex items-center gap-2.5 bg-indigo-500/[0.06] border border-indigo-500/20 rounded-xl px-5 py-3.5 min-w-[200px] justify-center">
+              <node.icon size={18} className="text-indigo-400" />
+              <span className="text-sm font-semibold text-text-primary">
+                {node.label}
+              </span>
+            </div>
+            {idx < 2 && (
+              <div className="border-l-2 border-dashed border-indigo-500/25 h-6" />
+            )}
+          </div>
+        ))}
+
+        {/* Branch connector */}
+        <div className="border-l-2 border-dashed border-indigo-500/25 h-6" />
+
+        {/* Branch nodes */}
+        <div className="flex flex-col items-center gap-3">
+          {[
+            { label: "온라인 풀필먼트", icon: PackageCheck },
+            { label: "오프라인 유통", icon: Truck },
+            { label: "리테일 입점", icon: Store },
+          ].map((node) => (
+            <div
+              key={node.label}
+              className="flex items-center gap-2 bg-indigo-500/[0.04] border border-indigo-500/15 rounded-lg px-4 py-2.5 min-w-[180px] justify-center"
+            >
+              <node.icon size={14} className="text-indigo-400" />
+              <span className="text-xs font-semibold text-text-primary">
+                {node.label}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function LogisticsSection() {
   return (
-    <section id="logistics" className="relative py-24 md:py-32 px-4 sm:px-6 lg:px-8 section-phase-indigo grid-pattern">
-      {/* Background accent */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute bottom-1/3 left-0 w-[600px] h-[600px] bg-gradient-radial-indigo opacity-15 blur-3xl"
-      />
-
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute top-[15%] left-[10%] w-14 h-14 rounded-full border border-brand-indigo/8 animate-float-slow" />
-        <div className="absolute bottom-[18%] right-[6%] w-10 h-10 rotate-45 border border-brand-purple/8 animate-float-reverse" />
-      </div>
-
+    <section
+      id="logistics"
+      className="relative py-24 md:py-32 px-4 sm:px-6 lg:px-8 section-phase-indigo"
+    >
       <div className="relative max-w-6xl mx-auto">
-        {/* ── Section heading ─────────────────────────────────── */}
+        {/* Section heading */}
         <ScrollReveal>
           <SectionHeading
             badge="Phase 1 · 시장진입 준비"
             title="온/오프라인 물류 인프라 구축"
             subtitle="한국에서 인도네시아 고객 손까지, 완벽한 물류 체인"
-            icon="📦"
+            icon={<ServiceIcon serviceId="logistics" color="indigo" size="sm" />}
             align="center"
           />
         </ScrollReveal>
 
-        {/* ── Logistics Flow Diagram ──────────────────────────── */}
+        {/* SVG Flow Diagram */}
         <ScrollReveal delay={0.2}>
           <div className="mt-16">
-            {/* Top flow: horizontal on md+, vertical on mobile */}
-            <div className="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-0">
-              {flowNodes.map((node, idx) => (
-                <div key={node.label} className="flex flex-col md:flex-row items-center gap-3 md:gap-0">
-                  <GlowCard
-                    variant="indigo"
-                    hover={false}
-                    className="!p-4 text-center min-w-[160px]"
-                  >
-                    <span className="text-2xl block mb-1">{node.icon}</span>
-                    <p className="text-sm font-semibold text-text-primary whitespace-nowrap">
-                      {node.label}
-                    </p>
-                  </GlowCard>
-                  {idx < flowNodes.length - 1 && (
-                    <>
-                      {/* Desktop arrow */}
-                      <span className="hidden md:block text-brand-indigo/60 font-mono text-lg px-3 tracking-widest">
-                        ───→
-                      </span>
-                      {/* Mobile arrow */}
-                      <span className="md:hidden text-brand-indigo/60 font-mono text-lg tracking-widest">
-                        ↓
-                      </span>
-                    </>
-                  )}
-                </div>
-              ))}
-            </div>
-
-            {/* Branching connector */}
-            <div className="flex justify-center my-6">
-              <div className="border-l-2 border-dashed border-brand-indigo/30 h-10" />
-            </div>
-
-            {/* Branch nodes */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              {branchNodes.map((node, idx) => (
-                <div key={node.label} className="flex items-center gap-4">
-                  <GlowCard
-                    variant="indigo"
-                    hover={false}
-                    className="!p-3 text-center min-w-[140px]"
-                  >
-                    <span className="text-xl block mb-1">{node.icon}</span>
-                    <p className="text-xs font-semibold text-text-primary whitespace-nowrap">
-                      {node.label}
-                    </p>
-                  </GlowCard>
-                  {idx < branchNodes.length - 1 && (
-                    <span className="hidden sm:block text-brand-indigo/30 text-lg">
-                      |
-                    </span>
-                  )}
-                </div>
-              ))}
-            </div>
+            <FlowDiagram />
           </div>
         </ScrollReveal>
 
-        {/* ── 2x2 Detail Cards ────────────────────────────────── */}
+        {/* Detail Cards: horizontal scroll on mobile, 2x2 grid on desktop */}
         <div className="mt-14">
-          <StaggerChildren
-            staggerDelay={0.12}
-            className="grid grid-cols-1 md:grid-cols-2 gap-6"
-          >
-            {detailCards.map((card) => (
-              <GlowCard key={card.title} variant="indigo" accentBar className="flex flex-col">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-xs font-black text-brand-indigo bg-brand-indigo/15 border border-brand-indigo/30 w-8 h-8 rounded-lg flex items-center justify-center font-mono shadow-sm shadow-brand-indigo/10">
-                    {card.number}
-                  </span>
-                  <h4 className="text-lg font-bold text-text-primary">
-                    {card.title}
-                  </h4>
-                </div>
-                <ul className="space-y-1.5">
-                  {card.items.map((item) => (
-                    <li
-                      key={item}
-                      className="text-sm text-text-secondary flex items-start gap-2"
-                    >
-                      <span className="text-brand-indigo/60 mt-0.5 flex-shrink-0">
-                        ›
+          {/* Desktop: 2x2 grid */}
+          <div className="hidden md:block">
+            <StaggerChildren
+              staggerDelay={0.12}
+              className="grid grid-cols-2 gap-6"
+            >
+              {detailCards.map((card) => {
+                const IconComp = card.icon;
+                return (
+                  <Card
+                    key={card.title}
+                    variant="interactive"
+                    color="indigo"
+                    className="flex flex-col"
+                  >
+                    <div className="flex items-center gap-3 mb-4">
+                      <span className="text-xs font-black text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 w-8 h-8 rounded-lg flex items-center justify-center font-mono">
+                        {card.number}
                       </span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </GlowCard>
-            ))}
-          </StaggerChildren>
+                      <h4 className="text-lg font-bold text-text-primary">
+                        {card.title}
+                      </h4>
+                      <IconComp
+                        size={16}
+                        className="text-indigo-400/40 ml-auto"
+                      />
+                    </div>
+                    <ul className="space-y-1.5">
+                      {card.items.map((item) => (
+                        <li
+                          key={item}
+                          className="text-[15px] text-text-secondary flex items-start gap-2"
+                        >
+                          <span className="text-indigo-400/50 mt-0.5 flex-shrink-0">
+                            ›
+                          </span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </Card>
+                );
+              })}
+            </StaggerChildren>
+          </div>
+
+          {/* Mobile: horizontal scroll */}
+          <ScrollReveal delay={0.3} className="md:hidden">
+            <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory -mx-4 px-4">
+              {detailCards.map((card) => {
+                const IconComp = card.icon;
+                return (
+                  <div
+                    key={card.title}
+                    className="snap-start flex-shrink-0 w-[280px]"
+                  >
+                    <Card
+                      variant="interactive"
+                      color="indigo"
+                      className="flex flex-col h-full"
+                    >
+                      <div className="flex items-center gap-3 mb-4">
+                        <span className="text-xs font-black text-indigo-400 bg-indigo-500/10 border border-indigo-500/20 w-8 h-8 rounded-lg flex items-center justify-center font-mono">
+                          {card.number}
+                        </span>
+                        <h4 className="text-base font-bold text-text-primary">
+                          {card.title}
+                        </h4>
+                        <IconComp
+                          size={16}
+                          className="text-indigo-400/40 ml-auto"
+                        />
+                      </div>
+                      <ul className="space-y-1.5">
+                        {card.items.map((item) => (
+                          <li
+                            key={item}
+                            className="text-[15px] text-text-secondary flex items-start gap-2"
+                          >
+                            <span className="text-indigo-400/50 mt-0.5 flex-shrink-0">
+                              ›
+                            </span>
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </Card>
+                  </div>
+                );
+              })}
+            </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

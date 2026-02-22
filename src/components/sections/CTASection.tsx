@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, FormEvent } from "react";
-import GlowCard from "@/components/ui/GlowCard";
+import { CheckCircle2 } from "lucide-react";
+import Card from "@/components/ui/Card";
 import ScrollReveal from "@/components/animation/ScrollReveal";
 import { BRAND_CATEGORIES, EXPERIENCE_OPTIONS, SERVICE_OPTIONS } from "@/lib/constants";
 
@@ -25,6 +26,12 @@ const trustItems = [
   "24시간 내 담당자 연락",
   "100% 무료 초기 상담",
   "NDA 보장",
+];
+
+const miniStats = [
+  { label: "진행 중", value: "12건" },
+  { label: "평균 응답", value: "4시간" },
+  { label: "만족도", value: "97%" },
 ];
 
 export default function CTASection() {
@@ -62,41 +69,58 @@ export default function CTASection() {
   };
 
   return (
-    <section id="contact" className="relative py-24 md:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
-      {/* ── Background radial glow ────────────────────────────── */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-gradient-radial-indigo opacity-20"
-      />
+    <section
+      id="contact"
+      className="relative py-24 md:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden"
+    >
+      <div className="relative max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-start">
+          {/* ── Left column: headline + trust ──────────────────── */}
+          <ScrollReveal className="lg:col-span-5">
+            <div className="lg:sticky lg:top-32">
+              <h2 className="font-display text-3xl md:text-4xl lg:text-[40px] font-bold text-text-primary leading-tight">
+                인도네시아 시장,
+                <br />
+                <span className="gradient-text">지금 시작하지 않으면 늦습니다.</span>
+              </h2>
 
-      {/* Floating geometric shapes */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute top-[18%] left-[5%] w-28 h-28 rounded-full border border-brand-indigo/8 animate-float-slow" />
-        <div className="absolute bottom-[12%] right-[6%] w-20 h-20 rotate-45 border border-brand-cyan/8 animate-float-reverse" />
-        <div className="absolute top-[40%] right-[4%] w-3 h-3 rounded-full bg-brand-indigo/20 animate-pulse-glow" />
-        <div className="absolute bottom-[30%] left-[8%] w-2 h-2 rounded-full bg-brand-cyan/20 animate-pulse-glow" style={{ animationDelay: "1.5s" }} />
-        <div className="absolute top-[65%] left-[92%] w-16 h-16 rounded-full border border-brand-indigo/5 animate-float-slow" style={{ animationDelay: "2s" }} />
-      </div>
+              <p className="mt-6 text-[15px] text-text-secondary leading-relaxed">
+                엄선된 K브랜드만 선정합니다. 무료 컨설팅으로 귀사의 인도네시아 진출 가능성을 확인하세요.
+              </p>
 
-      <div className="relative max-w-4xl mx-auto">
-        {/* ── Top headline ────────────────────────────────────── */}
-        <ScrollReveal>
-          <div className="text-center mb-12">
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-text-primary leading-tight max-w-3xl mx-auto">
-              인도네시아 시장,
-              <br />
-              <span className="gradient-text">지금 시작하지 않으면 늦습니다.</span>
-            </h2>
-            <p className="mt-6 text-text-secondary text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-              엄선된 K브랜드만 선정합니다. 무료 컨설팅으로 귀사의 인도네시아 진출 가능성을 확인하세요.
-            </p>
-          </div>
-        </ScrollReveal>
+              {/* Trust items */}
+              <ul className="mt-8 space-y-3">
+                {trustItems.map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-center gap-2.5 text-[15px] text-text-secondary"
+                  >
+                    <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
 
-        {/* ── Contact form ────────────────────────────────────── */}
-        <ScrollReveal delay={0.2}>
-          <div className="max-w-2xl mx-auto">
-            <GlowCard variant="indigo" animated>
+              {/* Mini stats row */}
+              <div className="mt-8 flex items-center gap-6">
+                {miniStats.map((stat, idx) => (
+                  <div key={stat.label} className="flex items-center gap-6">
+                    <div>
+                      <p className="text-lg font-semibold text-text-primary">{stat.value}</p>
+                      <p className="text-xs tracking-wide text-text-tertiary">{stat.label}</p>
+                    </div>
+                    {idx < miniStats.length - 1 && (
+                      <div className="h-8 w-px bg-white/8" />
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </ScrollReveal>
+
+          {/* ── Right column: contact form ─────────────────────── */}
+          <ScrollReveal delay={0.2} className="lg:col-span-7">
+            <Card variant="elevated" color="indigo">
               <form onSubmit={handleSubmit} className="space-y-5">
                 {/* Row: company + name */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -255,24 +279,9 @@ export default function CTASection() {
                   무료 컨설팅 신청하기
                 </button>
               </form>
-            </GlowCard>
-          </div>
-        </ScrollReveal>
-
-        {/* ── Trust elements ───────────────────────────────────── */}
-        <ScrollReveal delay={0.4}>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-8">
-            {trustItems.map((item) => (
-              <span
-                key={item}
-                className="flex items-center gap-2 text-sm text-text-secondary"
-              >
-                <span className="text-brand-emerald font-bold">&#10003;</span>
-                {item}
-              </span>
-            ))}
-          </div>
-        </ScrollReveal>
+            </Card>
+          </ScrollReveal>
+        </div>
       </div>
     </section>
   );

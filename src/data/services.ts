@@ -15,7 +15,7 @@ export const services: ServiceItem[] = [
       '인증 갱신 및 사후 관리',
     ],
     phase: 1,
-    icon: '🕌',
+    icon: 'halal',
     duration: '3~6개월',
   },
   {
@@ -32,7 +32,7 @@ export const services: ServiceItem[] = [
       '규제 변경 모니터링 및 대응',
     ],
     phase: 1,
-    icon: '📋',
+    icon: 'license',
     duration: '2~4개월',
   },
   {
@@ -48,7 +48,7 @@ export const services: ServiceItem[] = [
       '통관·검역 프로세스 지원',
     ],
     phase: 1,
-    icon: '📦',
+    icon: 'logistics',
     duration: '1~3개월',
   },
 
@@ -67,7 +67,7 @@ export const services: ServiceItem[] = [
       '장기 앰배서더 프로그램 운영',
     ],
     phase: 2,
-    icon: '🌟',
+    icon: 'influencer',
     duration: '월 단위 운영',
   },
   {
@@ -83,7 +83,7 @@ export const services: ServiceItem[] = [
       '오프라인 프로모션 기획',
     ],
     phase: 2,
-    icon: '🏬',
+    icon: 'offline',
     duration: '2~4개월',
   },
   {
@@ -100,7 +100,7 @@ export const services: ServiceItem[] = [
       '유료 광고(Meta Ads, TikTok Ads) 운영',
     ],
     phase: 2,
-    icon: '📱',
+    icon: 'sns',
     duration: '월 단위 운영',
   },
 
@@ -119,7 +119,7 @@ export const services: ServiceItem[] = [
       '주문·배송·반품 프로세스 구축',
     ],
     phase: 3,
-    icon: '🟠',
+    icon: 'shopee',
     duration: '1~2개월',
   },
   {
@@ -136,7 +136,7 @@ export const services: ServiceItem[] = [
       '틱톡 광고(Spark Ads) 최적화',
     ],
     phase: 3,
-    icon: '🎵',
+    icon: 'tiktok',
     duration: '1~2개월',
   },
   {
@@ -152,7 +152,7 @@ export const services: ServiceItem[] = [
       'CRM 및 이메일 마케팅 자동화',
     ],
     phase: 3,
-    icon: '🌐',
+    icon: 'd2c',
     duration: '2~3개월',
   },
 
@@ -170,7 +170,7 @@ export const services: ServiceItem[] = [
       '고객 VOC 분석 및 제품 피드백 리포트',
     ],
     phase: 4,
-    icon: '🎧',
+    icon: 'cs',
     duration: '월 단위 운영',
   },
   {
@@ -187,7 +187,7 @@ export const services: ServiceItem[] = [
       '영상 자막 및 더빙 제작',
     ],
     phase: 4,
-    icon: '🗣️',
+    icon: 'translation',
     duration: '건별/월 단위',
   },
   {
@@ -204,7 +204,7 @@ export const services: ServiceItem[] = [
       '성장 전략 수립 및 분기별 리뷰',
     ],
     phase: 4,
-    icon: '📊',
+    icon: 'analytics',
     duration: '월 단위 운영',
   },
 ];

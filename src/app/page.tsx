@@ -18,86 +18,103 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SmoothScroller from "@/components/layout/SmoothScroller";
 
-function SectionConnector({ phase }: { phase?: 'indigo' | 'cyan' | 'emerald' | 'amber' }) {
-  const colors: Record<string, { line: string; dot: string; glow: string }> = {
-    indigo: { line: 'rgba(99,102,241,0.3)', dot: '#6366f1', glow: 'rgba(99,102,241,0.5)' },
-    cyan: { line: 'rgba(6,182,212,0.3)', dot: '#06b6d4', glow: 'rgba(6,182,212,0.5)' },
-    emerald: { line: 'rgba(16,185,129,0.3)', dot: '#10b981', glow: 'rgba(16,185,129,0.5)' },
-    amber: { line: 'rgba(245,158,11,0.3)', dot: '#f59e0b', glow: 'rgba(245,158,11,0.5)' },
-  };
-  const c = phase ? colors[phase] : colors.indigo;
+/* Minimal section connector — small dot + gradient line */
+function SectionConnector({ from, to }: { from?: string; to?: string }) {
+  const fromColor = from || "rgba(99,102,241,0.2)";
+  const toColor = to || fromColor;
 
   return (
-    <div className="flex flex-col items-center py-2" aria-hidden="true">
-      <div className="w-px h-10" style={{ background: `linear-gradient(180deg, transparent, ${c.line})` }} />
-      <div className="w-2.5 h-2.5 rotate-45 my-1" style={{ background: c.dot, boxShadow: `0 0 10px ${c.glow}` }} />
-      <div className="w-px h-10" style={{ background: `linear-gradient(180deg, ${c.line}, transparent)` }} />
+    <div className="flex flex-col items-center py-1" aria-hidden="true">
+      <div
+        className="w-px h-8"
+        style={{ background: `linear-gradient(180deg, transparent, ${fromColor})` }}
+      />
+      <div
+        className="w-1.5 h-1.5 rounded-full my-1"
+        style={{
+          background: `linear-gradient(135deg, ${fromColor}, ${toColor})`,
+        }}
+      />
+      <div
+        className="w-px h-8"
+        style={{ background: `linear-gradient(180deg, ${toColor}, transparent)` }}
+      />
     </div>
   );
 }
+
+const PHASE = {
+  indigo: "rgba(99,102,241,0.3)",
+  cyan: "rgba(6,182,212,0.3)",
+  emerald: "rgba(16,185,129,0.3)",
+  amber: "rgba(245,158,11,0.3)",
+};
 
 export default function Home() {
   return (
     <SmoothScroller>
       <Navbar />
       <main className="relative">
-        {/* ═══ HERO ═══ */}
+        {/* Hero */}
         <HeroSection />
 
-        <SectionConnector />
+        <SectionConnector from={PHASE.indigo} />
 
-        {/* ═══ TRUST: Partnership ═══ */}
+        {/* Trust: Partnership */}
         <PartnershipSection />
 
-        <SectionConnector />
+        <SectionConnector from={PHASE.indigo} />
 
-        {/* ═══ DATA: Market ═══ */}
+        {/* Data: Market */}
         <MarketSection />
 
-        <SectionConnector />
+        <SectionConnector from={PHASE.indigo} />
 
-        {/* ═══ CORE: Full-Funnel Pipeline ═══ */}
+        {/* Core: Full-Funnel Pipeline */}
         <PipelineSection />
 
-        <SectionConnector phase="indigo" />
+        <SectionConnector from={PHASE.indigo} />
 
-        {/* ═══ PHASE 1: Market Entry (Indigo) ═══ */}
+        {/* Phase 1: Market Entry (Indigo) */}
         <div id="services">
           <HalalSection />
-          <SectionConnector phase="indigo" />
+          <SectionConnector from={PHASE.indigo} />
           <LicensingSection />
-          <SectionConnector phase="indigo" />
+          <SectionConnector from={PHASE.indigo} />
           <LogisticsSection />
         </div>
 
-        <SectionConnector phase="cyan" />
+        {/* Phase transition: Indigo → Cyan */}
+        <SectionConnector from={PHASE.indigo} to={PHASE.cyan} />
 
-        {/* ═══ PHASE 2: Marketing (Cyan) ═══ */}
+        {/* Phase 2: Marketing (Cyan) */}
         <InfluencerSection />
-        <SectionConnector phase="cyan" />
+        <SectionConnector from={PHASE.cyan} />
         <OfflineSection />
 
-        <SectionConnector phase="emerald" />
+        {/* Phase transition: Cyan → Emerald */}
+        <SectionConnector from={PHASE.cyan} to={PHASE.emerald} />
 
-        {/* ═══ PHASE 3: Sales (Emerald) ═══ */}
+        {/* Phase 3: Sales (Emerald) */}
         <ShopeeSection />
-        <SectionConnector phase="emerald" />
+        <SectionConnector from={PHASE.emerald} />
         <TiktokSection />
-        <SectionConnector phase="emerald" />
+        <SectionConnector from={PHASE.emerald} />
         <D2CSection />
 
-        <SectionConnector phase="amber" />
+        {/* Phase transition: Emerald → Amber */}
+        <SectionConnector from={PHASE.emerald} to={PHASE.amber} />
 
-        {/* ═══ PHASE 4: Operations (Amber) ═══ */}
+        {/* Phase 4: Operations (Amber) */}
         <CustomerServiceSection />
-        <SectionConnector phase="amber" />
+        <SectionConnector from={PHASE.amber} />
         <SNSSection />
-        <SectionConnector phase="amber" />
+        <SectionConnector from={PHASE.amber} />
         <TranslationSection />
 
-        <SectionConnector />
+        <SectionConnector from={PHASE.amber} to={PHASE.indigo} />
 
-        {/* ═══ CTA ═══ */}
+        {/* CTA */}
         <CTASection />
       </main>
       <Footer />

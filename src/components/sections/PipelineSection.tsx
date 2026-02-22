@@ -2,102 +2,15 @@
 
 import SectionHeading from "@/components/ui/SectionHeading";
 import ScrollReveal from "@/components/animation/ScrollReveal";
-
-/* ────────────────────────────────────────────────────────────────
-   Pipeline data — self-contained
-   ──────────────────────────────────────────────────────────────── */
-
-interface ServiceNode {
-  icon: string;
-  name: string;
-  nameEn: string;
-}
-
-interface PhaseData {
-  icon: string;
-  name: string;
-  nameEn: string;
-  r: number;
-  g: number;
-  b: number;
-  services: ServiceNode[];
-}
-
-const phases: PhaseData[] = [
-  {
-    icon: "🏗️",
-    name: "시장진입 준비",
-    nameEn: "Market Entry",
-    r: 99, g: 102, b: 241,
-    services: [
-      { icon: "🕌", name: "할랄 인증", nameEn: "Halal Certification" },
-      { icon: "📋", name: "인허가", nameEn: "Licensing" },
-      { icon: "📦", name: "물류", nameEn: "Logistics" },
-    ],
-  },
-  {
-    icon: "📣",
-    name: "마케팅 & 브랜딩",
-    nameEn: "Marketing",
-    r: 6, g: 182, b: 212,
-    services: [
-      { icon: "🌟", name: "인플루언서", nameEn: "Influencer" },
-      { icon: "🏬", name: "오프라인", nameEn: "Offline Retail" },
-      { icon: "📱", name: "SNS 관리", nameEn: "SNS Mgmt" },
-    ],
-  },
-  {
-    icon: "🛒",
-    name: "세일즈 채널",
-    nameEn: "Sales Channel",
-    r: 16, g: 185, b: 129,
-    services: [
-      { icon: "🟠", name: "쇼피 입점", nameEn: "Shopee" },
-      { icon: "🎵", name: "틱톡샵", nameEn: "TikTok Shop" },
-      { icon: "🌐", name: "D2C 웹사이트", nameEn: "D2C Website" },
-    ],
-  },
-  {
-    icon: "📈",
-    name: "운영 & 성장",
-    nameEn: "Operations",
-    r: 245, g: 158, b: 11,
-    services: [
-      { icon: "💬", name: "CS 채널", nameEn: "Customer Service" },
-      { icon: "🌏", name: "통번역", nameEn: "Translation" },
-      { icon: "📊", name: "데이터 분석", nameEn: "Analytics" },
-    ],
-  },
-];
-
-/* ────────────────────────────────────────────────────────────────
-   Component
-   ──────────────────────────────────────────────────────────────── */
+import PipelineGraph from "@/components/sections/PipelineGraph";
 
 export default function PipelineSection() {
   return (
     <section
       id="pipeline"
-      className="relative py-24 md:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden section-slightly-lighter grid-pattern"
+      className="relative py-24 md:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden section-slightly-lighter"
     >
-      {/* Background accent */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px]"
-        style={{
-          background:
-            "radial-gradient(ellipse at center, rgba(99,102,241,0.06) 0%, transparent 70%)",
-        }}
-      />
-
-      {/* Floating geometric decorations */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute top-[10%] right-[10%] w-24 h-24 rounded-full border border-brand-indigo/8 animate-float-slow" />
-        <div className="absolute bottom-[15%] left-[5%] w-14 h-14 rotate-45 border border-brand-cyan/8 animate-float-reverse" />
-      </div>
-
       <div className="relative max-w-7xl mx-auto">
-        {/* ── Section heading ──────────────────────────────────── */}
         <ScrollReveal>
           <SectionHeading
             badge="풀퍼널 서비스"
@@ -107,149 +20,139 @@ export default function PipelineSection() {
           />
         </ScrollReveal>
 
-        {/* ── Main Hub Node ────────────────────────────────────── */}
-        <ScrollReveal delay={0.15}>
-          <div className="mt-16 flex justify-center">
-            <div
-              className="mx-auto max-w-md w-full text-center rounded-2xl p-8 gradient-border-indigo"
-              style={{
-                background:
-                  "linear-gradient(135deg, rgba(99,102,241,0.15) 0%, rgba(6,182,212,0.08) 100%)",
-                border: "1px solid rgba(99,102,241,0.3)",
-                boxShadow:
-                  "0 0 60px rgba(99,102,241,0.15), 0 0 120px rgba(99,102,241,0.05)",
-              }}
-            >
-              <div className="text-4xl mb-3">🇰🇷</div>
-              <h3 className="text-2xl font-bold gradient-text">
-                K-Brand 진출 허브
-              </h3>
-              <p className="text-text-secondary text-sm mt-1">
-                Afformation &times; Sinarmas
-              </p>
-            </div>
-          </div>
-        </ScrollReveal>
-
-        {/* ── Vertical connector: Hub → Phase row ──────────────── */}
-        <ScrollReveal delay={0.25}>
-          <div className="flex flex-col items-center py-4">
-            <div
-              className="w-px h-8"
-              style={{
-                background:
-                  "linear-gradient(180deg, rgba(99,102,241,0.5), rgba(99,102,241,0.2))",
-              }}
-            />
-            <div
-              className="w-3 h-3 rotate-45 my-1"
-              style={{
-                background: "#6366f1",
-                boxShadow: "0 0 12px rgba(99,102,241,0.6)",
-              }}
-            />
-            <div
-              className="w-px h-8"
-              style={{
-                background:
-                  "linear-gradient(180deg, rgba(99,102,241,0.2), rgba(99,102,241,0.5))",
-              }}
-            />
-          </div>
-        </ScrollReveal>
-
-        {/* ── 4 Phase columns (card + connector + services) ──── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {phases.map((phase, phaseIdx) => (
-            <ScrollReveal
-              key={phase.nameEn}
-              delay={0.3 + phaseIdx * 0.08}
-            >
-              <div className="flex flex-col">
-                {/* Phase hub card */}
-                <div
-                  className="rounded-2xl p-5 text-center"
-                  style={{
-                    background: `linear-gradient(135deg, rgba(${phase.r},${phase.g},${phase.b},0.2) 0%, rgba(${phase.r},${phase.g},${phase.b},0.08) 100%)`,
-                    border: `1px solid rgba(${phase.r},${phase.g},${phase.b},0.4)`,
-                    boxShadow: `0 0 30px rgba(${phase.r},${phase.g},${phase.b},0.2)`,
-                  }}
-                >
-                  <div
-                    className="inline-flex items-center justify-center w-12 h-12 rounded-xl text-2xl mb-3 mx-auto"
-                    style={{
-                      background: `rgba(${phase.r},${phase.g},${phase.b},0.2)`,
-                      border: `1px solid rgba(${phase.r},${phase.g},${phase.b},0.4)`,
-                      boxShadow: `0 0 15px rgba(${phase.r},${phase.g},${phase.b},0.15)`,
-                    }}
-                  >
-                    {phase.icon}
-                  </div>
-                  <h4 className="font-bold text-sm">{phase.name}</h4>
-                  <p className="text-text-tertiary text-xs mt-0.5">
-                    {phase.nameEn}
-                  </p>
-                </div>
-
-                {/* Vertical connector: phase card → service nodes */}
-                <div className="flex justify-center py-2">
-                  <div
-                    className="w-px h-6"
-                    style={{
-                      background: `rgba(${phase.r},${phase.g},${phase.b},0.3)`,
-                    }}
-                  />
-                </div>
-
-                {/* Service nodes */}
-                <div className="flex flex-col">
-                  {phase.services.map((svc, svcIdx) => (
-                    <div key={svc.nameEn}>
-                      {/* Connector dot between service nodes */}
-                      {svcIdx > 0 && (
-                        <div className="flex justify-center py-1">
-                          <div
-                            className="w-1 h-1 rounded-full"
-                            style={{
-                              background: `rgba(${phase.r},${phase.g},${phase.b},0.4)`,
-                            }}
-                          />
-                        </div>
-                      )}
-
-                      {/* Service node card */}
-                      <div
-                        className="rounded-xl p-3 flex items-center gap-3"
-                        style={{
-                          background: `rgba(${phase.r},${phase.g},${phase.b},0.15)`,
-                          border: `1px solid rgba(${phase.r},${phase.g},${phase.b},0.3)`,
-                        }}
-                      >
-                        <span className="text-xl flex-shrink-0">
-                          {svc.icon}
-                        </span>
-                        <div>
-                          <p className="font-semibold text-sm">{svc.name}</p>
-                          <p className="text-text-tertiary text-xs">
-                            {svc.nameEn}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </ScrollReveal>
-          ))}
+        {/* Desktop: Full SVG node graph */}
+        <div className="mt-12 hidden lg:block">
+          <PipelineGraph />
         </div>
 
-        {/* ── Bottom message ──────────────────────────────────── */}
-        <ScrollReveal delay={0.7}>
-          <p className="mt-12 text-sm text-text-tertiary text-center">
+        {/* Tablet: Simplified 2-row */}
+        <div className="mt-12 hidden md:block lg:hidden">
+          <PipelineGraph />
+        </div>
+
+        {/* Mobile: Vertical timeline */}
+        <div className="mt-12 md:hidden">
+          <MobileTimeline />
+        </div>
+
+        <ScrollReveal delay={0.5}>
+          <p className="mt-10 text-sm text-text-tertiary text-center">
             모든 서비스가 유기적으로 연결된 원스톱 풀퍼널 파이프라인
           </p>
         </ScrollReveal>
       </div>
     </section>
+  );
+}
+
+/* Mobile vertical timeline fallback */
+import {
+  Building2,
+  Megaphone,
+  ShoppingCart,
+  TrendingUp,
+  Shield,
+  FileCheck,
+  Package,
+  Users,
+  Store,
+  Smartphone,
+  ShoppingBag,
+  Play,
+  Globe,
+  Headphones,
+  Languages,
+  BarChart3,
+} from "lucide-react";
+
+const mobilePhases = [
+  {
+    label: "시장진입 준비",
+    color: "#6366f1",
+    colorClass: "border-indigo-500/20 bg-indigo-500/5",
+    iconColor: "text-indigo-400",
+    Icon: Building2,
+    services: [
+      { label: "할랄 인증", Icon: Shield },
+      { label: "인허가", Icon: FileCheck },
+      { label: "물류", Icon: Package },
+    ],
+  },
+  {
+    label: "마케팅 & 브랜딩",
+    color: "#06b6d4",
+    colorClass: "border-cyan-500/20 bg-cyan-500/5",
+    iconColor: "text-cyan-400",
+    Icon: Megaphone,
+    services: [
+      { label: "인플루언서", Icon: Users },
+      { label: "오프라인", Icon: Store },
+      { label: "SNS", Icon: Smartphone },
+    ],
+  },
+  {
+    label: "세일즈 채널",
+    color: "#10b981",
+    colorClass: "border-emerald-500/20 bg-emerald-500/5",
+    iconColor: "text-emerald-400",
+    Icon: ShoppingCart,
+    services: [
+      { label: "쇼피", Icon: ShoppingBag },
+      { label: "틱톡샵", Icon: Play },
+      { label: "D2C", Icon: Globe },
+    ],
+  },
+  {
+    label: "운영 & 성장",
+    color: "#f59e0b",
+    colorClass: "border-amber-500/20 bg-amber-500/5",
+    iconColor: "text-amber-400",
+    Icon: TrendingUp,
+    services: [
+      { label: "CS", Icon: Headphones },
+      { label: "통번역", Icon: Languages },
+      { label: "분석", Icon: BarChart3 },
+    ],
+  },
+];
+
+function MobileTimeline() {
+  return (
+    <div className="relative pl-8">
+      {/* Vertical line */}
+      <div className="absolute left-3 top-0 bottom-0 w-px bg-gradient-to-b from-indigo-500/20 via-cyan-500/20 via-emerald-500/20 to-amber-500/20" />
+
+      <div className="space-y-8">
+        {mobilePhases.map((phase, i) => (
+          <ScrollReveal key={phase.label} delay={0.1 + i * 0.08}>
+            <div className="relative">
+              {/* Dot on timeline */}
+              <div
+                className="absolute -left-8 top-3 w-2 h-2 rounded-full"
+                style={{ background: phase.color }}
+              />
+
+              {/* Phase header */}
+              <div className={`rounded-xl border p-4 ${phase.colorClass}`}>
+                <div className="flex items-center gap-2 mb-3">
+                  <phase.Icon size={16} strokeWidth={1.5} className={phase.iconColor} />
+                  <span className="text-sm font-semibold text-text-primary">{phase.label}</span>
+                </div>
+
+                {/* Services */}
+                <div className="grid grid-cols-3 gap-2">
+                  {phase.services.map((svc) => (
+                    <div key={svc.label} className="flex flex-col items-center gap-1 py-2">
+                      <svc.Icon size={14} strokeWidth={1.5} className={phase.iconColor} />
+                      <span className="text-[10px] text-text-tertiary">{svc.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
+        ))}
+      </div>
+    </div>
   );
 }
